@@ -11,11 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712085344) do
+ActiveRecord::Schema.define(version: 20160714192750) do
 
   create_table "africas", force: :cascade do |t|
     t.string   "img"
     t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "americans", force: :cascade do |t|
+    t.string   "img2"
+    t.string   "title2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "asia", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "europes", force: :cascade do |t|
+    t.string   "title1"
+    t.string   "img1"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "img3"
+    t.string   "title3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

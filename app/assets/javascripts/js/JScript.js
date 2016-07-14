@@ -176,6 +176,7 @@ $(document).ready(function() {
     $('#africa_folio').click(function () {
         $('.europe').hide(1000);
         $('.america').hide(1000);
+        $('.asia').hide(1000);
         $('.africa').show(2000);
         $('#city_folio li').removeClass('active');
         $(this).addClass('active');
@@ -183,6 +184,7 @@ $(document).ready(function() {
     $('#europe_folio').click(function () {
         $('.africa').hide(1000);
         $('.america').hide(1000);
+         $('.asia').hide(1000);
         $('.europe').show(2000);
         $('#city_folio li').removeClass('active');
         $(this).addClass('active');
@@ -190,7 +192,16 @@ $(document).ready(function() {
     $('#america_folio').click(function () {
         $('.europe').hide(1000);
         $('.africa').hide(1000);
+         $('.asia').hide(1000);
         $('.america').show(2000);
+        $('#city_folio li').removeClass('active');
+        $(this).addClass('active');
+    });
+      $('#asia_folio').click(function () {
+        $('.europe').hide(1000);
+        $('.africa').hide(1000);
+        $('.america').hide(1000);
+        $('.asia').show(2000);
         $('#city_folio li').removeClass('active');
         $(this).addClass('active');
     });
