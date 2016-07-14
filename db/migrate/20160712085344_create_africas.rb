@@ -3,6 +3,7 @@ class CreateAfricas < ActiveRecord::Migration
     create_table :africas do |t|
       
       t.string :img
+      t.string :title
 
       t.timestamps null: false
     end

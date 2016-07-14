@@ -46,18 +46,20 @@
 <div class="slidePoint" id="slide5" data-slide="5" data-stellar-background-ratio="0.5">
 	  <div id="container" class="container transitions-enabled infinite-scroll">
 	      <div class="grid_12" style="margin-bottom: 0;">
-	          <ul id="city_folio">
-	              <li id="africa_folio" class="active">Africa</li>
-	              <li id="europe_folio">Europe</li>
-                  <li id="america_folio">America</li>
+	          <ul id="city_folio" align="center">
+	              <li id="africa_folio" class="active"><img src="Africa.png" style="width: 180px; height: 150px"/></li>
+	              <li id="europe_folio"><img src="Africa.png" style="width: 180px; height: 150px"/></li>
+                  <li id="america_folio"><img src="Africa.png" style="width: 180px; height: 150px"/></li>
+	              <li id="asia_folio" class="active"><img src="Africa.png" style="width: 180px; height: 150px"/></li>
 	          </ul>
+
 	          
 	        
 
 	          
-	          
+              <!--AFRICA-->	          
 	         	<% @nation.each do |r| %>   
-	          	<div id="box1" class="africa box col4 hover-item">
+	          	<div id="box1" class="africa box col1 hover-item" style="margin-top: 100px; margin-left: 40px;">
 	          
 	              <div class="view view-first">
 	            
@@ -66,7 +68,7 @@
                    </div>
                    
 	              <div class="layer_txt">
-	                  
+	                  <p><%= r.title%></p>
 	              </div>
 	              
 	          </div>
