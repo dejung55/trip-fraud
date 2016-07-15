@@ -10,6 +10,7 @@
 	          </ul>
 
 	          
+        
               <!--AFRICA-->	          
 	          <% @nation.each do |r| %>   
     	          	<div id="box1" class="africa box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
@@ -17,53 +18,51 @@
     	                  <img class="imgTop" alt="Ipsum" src="<%= r.img%>"/>
                        </div>
                             <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
-	                             <p align="center"><%= r.title%></p>
+	                             <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title%></a></p>
 	                        </div>
     	            </div>
               <% end %>
+	    
               <!--EUROPE-->
-	          <% @nation.each do |r| %>   
-    	          	<div id="box1" class="europe box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
-    	               <div class="view view-first">
-    	                  <img class="imgTop" alt="Ipsum" src="<%= r.img%>"/>
-                       </div>
-                            <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
-	                             <p align="center"><%= r.title%></p>
-	                        </div>
-    	            </div>
-              <% end %>
-
-
+              <% @nation1.each do |r| %>
+              <div class="europe box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+	              <div class="view view-first">
+	                  <img class="imgTop" alt="Ipsum" src="<%= r.img1%>"/>
+	              </div>
+	              <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
+	                  <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title1 %></a></p>
+	             </div>
+	          </div>
+	          <% end %>
+           
 
               <!--AMERICA-->
- 	          <% @nation.each do |r| %>   
-    	          	<div id="box1" class="america box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
-    	               <div class="view view-first">
-    	                  <img class="imgTop" alt="Ipsum" src="<%= r.img%>"/>
-                       </div>
-                            <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
-	                             <p align="center"><%= r.title%></p>
-	                        </div>
-    	            </div>
-              <% end %>
-              
-              
-              <!--asia-->
-             <% @nation.each do |r| %>   
-    	          	<div id="box1" class="asia box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
-    	               <div class="view view-first">
-    	                  <img class="imgTop" alt="Ipsum" src="<%= r.img%>"/>
-                       </div>
-                            <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
-	                             <p align="center"><%= r.title%></p>
-	                        </div>
-    	            </div>
-              <% end %>
-              
-              
-              
-              
-              </div> <!-- #container -->
+              <% @nation2.each do |r| %>
+              <div class="america box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+	              <div class="view view-first">
+	                  <img class="imgTop" alt="Ipsum" src="<%= r.img2 %>"/>
+	              </div>
+	              <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
+	                  <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title2 %></a></p>
+                  </div>
+	          </div>
+	          <% end %>
+	          
+              <!--asia-->	          
+	         <% @nation3.each do |r| %> 
+             <div class="asia box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+                <div class="view view-first">
+                    <img class="imgTop" alt="Ipsum" src="<%= r.img3 %>"/>
+                 </div>
+                 <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
+                     <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title3 %></a></p>
+                  </div>
+	          </div>
+	          <% end %>
+	      
+	      </div>
+</div> <!-- #container -->
+
 </div>
 
 
