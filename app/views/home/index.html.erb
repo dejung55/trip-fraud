@@ -1,6 +1,6 @@
 <div class="slidePoint" id="slide5" data-slide="5" data-stellar-background-ratio="0.5" style="background-color : #10253f">
 	  <div id="container" class="container transitions-enabled infinite-scroll" align="center">
-          <img src="title1.png" style="width: 800px; height:400px; margin-top: 100px;margin-left: 10px; margin-right: 10px;" align="center"/>
+          <img src="title1.png" style="width: 800px; height:430px; margin-top: 50px;margin-left: 10px; margin-right: 10px;" align="center"/>
 	      <div class="grid_12" style="margin-top: 10px; margin-bottom: 500px;">
 	          <ul id="city_folio" align="center">
 	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="africa_folio" class="active"/>
@@ -22,68 +22,48 @@
     	            </div>
               <% end %>
               <!--EUROPE-->
-              <div class="europe box col4 hover-item">
-	              <div class="view view-first">
-	                  <img class="imgTop" alt="Ipsum" src="http://placehold.it/600x450"/>
-	                  <div class="abs">
-	                      <a class="fancybox zoom info" href="http://placehold.it/600x450"></a><a class="link info" href="info.html"></a>
-	                  </div>	
-	              </div>
-	              <div class="layer_txt">
-	                  <h3><a title="Some new Sketchs" rel="">Some new Sketchs</a></h3>
-	                  <span class="stars">
-	                      <img alt="" src="/assets/star.png"/>
-	                      <img alt="" src="/assets/star.png"/>
-	                      <img alt="" src="/assets/star.png"/>
-	                      <img alt="" src="/assets/star.png"/>
-	                  </span>
-                      <div class="clear"></div>
-	                  <p class="content_txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit porta. </p>
-	                  <div class="extra_trip">
-	                      <i class="icon-comment"><span>192</span></i>
-	                      <i class="icon-glass"><span>All inclusive</span></i>
-                          <i class="icon-map-marker">
-	                          <a class="show_maps" href="https://www.google.it/maps?sll=41.442726,12.392577999999995&amp;sspn=12.757592603316278,22.715160604868103&amp;t=m&amp;q=Europa&amp;dg=opt&amp;ie=UTF8&amp;hq=&amp;hnear=Europa&amp;ll=49.5,22&amp;spn=26.529675,67.631836&amp;z=5&amp;output=embed" >Show maps</a>
-	                      </i>
-                      </div>
-	                  <div class="content_price"><a class="price_folio" href="#">$1200</a><a class="price_folio" href="info.html">More Info</a></div>
-	              </div>
-	          </div>
-
-	    
+	          <% @nation.each do |r| %>   
+    	          	<div id="box1" class="europe box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+    	               <div class="view view-first">
+    	                  <img class="imgTop" alt="Ipsum" src="<%= r.img%>"/>
+                       </div>
+                            <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
+	                             <p align="center"><%= r.title%></p>
+	                        </div>
+    	            </div>
+              <% end %>
 
 
 
               <!--AMERICA-->
-              <div class="america box col4 hover-item">
-	              <div class="view view-first">
-	                  <img class="imgTop" alt="Ipsum" src="http://placehold.it/600x450"/>
-	                  <div class="abs">
-	                      <a class="fancybox zoom info" href="http://placehold.it/600x450"></a><a class="link info" href="info.html"></a>
-	                  </div>	
-	              </div>
-	              <div class="layer_txt">
-	                  <h3><a title="Some new Sketchs" rel="">Some new Sketchs</a></h3>
-                      <span class="stars">
-	                      <img alt="" src="/assets/star.png"/>
-	                      <img alt="" src="/assets/star.png"/>
-	                      <img alt="" src="/assets/star.png"/>
-	                      <img alt="" src="/assets/star.png"/>
-	                  </span>
-                      <div class="clear"></div>
-	                  <p class="content_txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit porta. </p>
-	                  <div class="extra_trip">
-	                      <i class="icon-comment"><span>192</span></i>
-	                      <i class="icon-glass"><span>All inclusive</span></i>
-                          <i class="icon-map-marker">
-	                          <a class="show_maps" href="https://maps.google.com/?ie=UTF8&amp;ll=35.995785,-92.768555&amp;spn=30.889102,67.631836&amp;t=h&amp;z=5&amp;output=embed" >Show maps</a>
-	                      </i>
-                      </div>
-	                  <div class="content_price"><a class="price_folio" href="#">$1200</a><a class="price_folio" href="info.html">More Info</a></div>
-	              </div>
-	          </div>
-	      </div>
-        </div> <!-- #container -->
+ 	          <% @nation.each do |r| %>   
+    	          	<div id="box1" class="america box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+    	               <div class="view view-first">
+    	                  <img class="imgTop" alt="Ipsum" src="<%= r.img%>"/>
+                       </div>
+                            <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
+	                             <p align="center"><%= r.title%></p>
+	                        </div>
+    	            </div>
+              <% end %>
+              
+              
+              <!--asia-->
+             <% @nation.each do |r| %>   
+    	          	<div id="box1" class="asia box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+    	               <div class="view view-first">
+    	                  <img class="imgTop" alt="Ipsum" src="<%= r.img%>"/>
+                       </div>
+                            <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
+	                             <p align="center"><%= r.title%></p>
+	                        </div>
+    	            </div>
+              <% end %>
+              
+              
+              
+              
+              </div> <!-- #container -->
 </div>
 
 
