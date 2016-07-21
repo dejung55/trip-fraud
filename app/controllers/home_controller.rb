@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @nation = Africa.all
-    @nation1 = Europe.all
-    @nation2 = American.all
-    @nation3 = Post.all
+    @nation_Afr = Africa.all
+    @nation_Eur = Europe.all
+    @nation_Ame = America.all
+    @nation_Asi = Post.all
   end
   
   def detail

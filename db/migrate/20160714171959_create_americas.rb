@@ -1,6 +1,6 @@
-class CreateAmericans < ActiveRecord::Migration
+class CreateAmericas < ActiveRecord::Migration
   def change
-    create_table :americans do |t|
+    create_table :americas do |t|
       
       t.string :img2
       t.string :title2

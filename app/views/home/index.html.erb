@@ -3,63 +3,63 @@
           <img src="title1.png" style="width: 800px; height:430px; margin-top: 50px;margin-left: 10px; margin-right: 10px;" align="center"/>
 	      <div class="grid_12" style="margin-top: 10px; margin-bottom: 500px;">
 	          <ul id="city_folio" align="center">
-	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="africa_folio" class="active"/>
-	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="europe_folio"/>
+	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="asia_folio"/>
                   <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="america_folio"/>
-	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="asia_folio" class="active"/>
+	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="europe_folio" />
+	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="africa_folio"/>
 	          </ul>
-
+	          
+	          
 	          
         
-              <!--AFRICA-->	          
-	          <% @nation.each do |r| %>   
-    	          	<div id="box1" class="africa box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+              <!--ASIA-->
+	          <% @nation_Asi.each do |r| %>   
+    	          	<div id="box1" class="asia box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
     	               <div class="view view-first">
-    	                  <img class="imgTop" alt="Ipsum" src="<%= r.img%>"/>
+    	                  <img class="imgTop" alt="Ipsum" src="<%= r.img3%>" />
                        </div>
                             <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
-	                             <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title%></a></p>
+	                             <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title3%></a></p>
 	                        </div>
     	            </div>
               <% end %>
 	    
-              <!--EUROPE-->
-              <% @nation1.each do |r| %>
-              <div class="europe box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+              <!--AMERICA-->
+              <% @nation_Ame.each do |r| %>
+              <div class="america box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
 	              <div class="view view-first">
-	                  <img class="imgTop" alt="Ipsum" src="<%= r.img1%>"/>
+	                  <img class="imgTop" alt="Ipsum" src="<%= r.img2%>"/>
 	              </div>
 	              <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
-	                  <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title1 %></a></p>
+	                  <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title2 %></a></p>
 	             </div>
 	          </div>
 	          <% end %>
            
 
-              <!--AMERICA-->
-              <% @nation2.each do |r| %>
-              <div class="america box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+              <!--EUROPE-->
+              <% @nation_Eur.each do |r| %>
+              <div class="europe box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
 	              <div class="view view-first">
-	                  <img class="imgTop" alt="Ipsum" src="<%= r.img2 %>"/>
+	                  <img class="imgTop" alt="Ipsum" src="<%= r.img1 %>"/>
 	              </div>
 	              <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
-	                  <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title2 %></a></p>
+	                  <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title1 %></a></p>
                   </div>
 	          </div>
 	          <% end %>
 	          
-              <!--asia-->	          
-	         <% @nation3.each do |r| %> 
-             <div class="asia box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+              <!--AFRICA-->	          
+	         <% @nation_Afr.each do |r| %> 
+             <div class="africa box col1 hover-item" style="margin-top: 100px; margin-left: 20px; margin-right: 20px;">
                 <div class="view view-first">
-                    <img class="imgTop" alt="Ipsum" src="<%= r.img3 %>"/>
+                    <img class="imgTop" alt="Ipsum" src="<%= r.img %>"/>
                  </div>
                  <div class="layer_txt" style=";padding-top: 5px;padding-bottom: 5px;">
-                     <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title3 %></a></p>
+                     <p align="center"><a href="/home/detail/<%= r.id %>" role="button"><%= r.title %></a></p>
                   </div>
 	          </div>
 	          <% end %>
-	      
 	      </div>
 </div> <!-- #container -->
 
@@ -68,7 +68,7 @@
 
 	<div id="map_container" style="display:none">
 			<div id="map_canvas"></div>
-		</div> 
+	</div> 
 
 
   

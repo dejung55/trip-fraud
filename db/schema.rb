@@ -20,14 +20,9 @@ ActiveRecord::Schema.define(version: 20160714192750) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "americans", force: :cascade do |t|
+  create_table "americas", force: :cascade do |t|
     t.string   "img2"
     t.string   "title2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "asia", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
