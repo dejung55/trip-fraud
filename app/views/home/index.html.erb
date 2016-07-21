@@ -3,10 +3,10 @@
           <img src="title1.png" style="width: 800px; height:430px; margin-top: 50px;margin-left: 10px; margin-right: 10px;" align="center"/>
 	      <div class="grid_12" style="margin-top: 10px; margin-bottom: 500px;">
 	          <ul id="city_folio" align="center">
-	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="africa_folio" class="active"/>
-	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="europe_folio"/>
-                  <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="america_folio"/>
-	              <img src="Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="asia_folio" class="active"/>
+	              <img src="/assets/Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="africa_folio" class="active"/>
+	              <img src="/assets/Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="europe_folio"/>
+                  <img src="/assets/Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="america_folio"/>
+	              <img src="/assets/Africa.png" style="width: 180px; height: 150px;  margin-left: 20px; margin-right: 20px;" id="asia_folio" class="active"/>
 	          </ul>
 
 	          
@@ -164,6 +164,37 @@
             });
 
         });
+    </script>
+    <!--마우스 이미지 오버랩-->
+    <script>
+        $( "#africa_folio" ).hover(
+          function() {
+            $( this ).attr('src','/assets/Africa1.png' );
+          }, function() {
+            $( this ).attr('src','/assets/Africa.png' );
+          }
+        );
+        $( "#europe_folio" ).hover(
+          function() {
+            $( this ).attr('src','/assets/Africa1.png' );
+          }, function() {
+            $( this ).attr('src','/assets/Africa.png' );
+          }
+        );
+        $( "#america_folio" ).hover(
+          function() {
+            $( this ).attr('src','/assets/Africa1.png' );
+          }, function() {
+            $( this ).attr('src','/assets/Africa.png' );
+          }
+        );
+        $( "#asia_folio" ).hover(
+          function() {
+            $( this ).attr('src','/assets/Africa1.png' );
+          }, function() {
+            $( this ).attr('src','/assets/Africa.png' );
+          }
+        );
     </script>
     <div id="valHeight"></div>
 	
