@@ -513,9 +513,11 @@ font-size:20px;
 #slide5{
 	background:#f1f1f1;
 	padding:76px 0 76px;
+	
 }
 #slide5 img {
 	max-width: 100%;
+	float: none;
 }
 .toggle-view {
     margin: 0;
@@ -750,6 +752,7 @@ p.hot_date {
 }
 
 .view {
+
     overflow: hidden;
     position: relative;
 }
@@ -834,11 +837,13 @@ p.hot_date {
 }
 .europe{ display: none;}
 .america{ display: none;}
+.asia{ display: none;}
+.africa{ display: none;}
 
 .rtl .box {
   float: right;
   text-align: right; 
-  direction: rtl;
+ direction: rtl;
 }
 
 
@@ -948,7 +953,7 @@ p.hot_date {
 	width:100%;
     
 }
-#slide8 .grid_12 {width:auto;float:none;}
+#slide8 .grid_12 {width:auto;float:left;}
 .padding_slide8 {position:relative;
 }
 #slide8 h4 {border-bottom:1px solid #cacaca;
@@ -1176,7 +1181,7 @@ img.calendar_link {
 }
 .view img {
     display: block;
-    position: relative;
+    position: inline;
 }
 .view a.link {
     background-color: #1BBC9B;
@@ -1340,7 +1345,7 @@ img.calendar_link {
 	font-family:Arial;
 	font-weight:400;
 	border-top:1px solid #d2d2d2;
-	border-right:none;
+	border-right: none;
 	border-bottom:1px solid #f0f0f0;
 	border-left:1px solid #d2d2d2;
 	color:#a1a1a1;
