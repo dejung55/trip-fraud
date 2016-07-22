@@ -43,5 +43,13 @@ class HomeController < ApplicationController
     @one_post.save
     redirect_to "/home/info"
     end
+    
+    def reply_write
+    reply = Reply.new
+    reply.content = params[:content]
+    reply.writing_id = params[:id_of_post]
+    reply.save
+    redirect_to :back
+    end
    
 end

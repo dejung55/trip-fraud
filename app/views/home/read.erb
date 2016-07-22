@@ -8,3 +8,14 @@
 <form action="/home/update_view/<%= @every_post.id %>" method="post">
 <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
 </form>
+
+<% @every_post.replies.each do |r| %>
+<%= r.content %><br>
+<% end %>
+
+<form style="margin-top:40px;" action="/home/reply_write" method="POST">
+<input type="hidden" value="<%= @every_post.id%>" name="id_of_post">
+<label for="exampleInputEmail1">-댓글작성-</label>
+<textarea name="content" class="form-control" rows="5" id="commit"></textarea>
+<button type="submit" class="btn btn-default" style="margintop:20px">전송</button>
+</form>
