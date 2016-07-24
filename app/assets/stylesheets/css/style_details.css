@@ -11,6 +11,7 @@
     overflow: hidden;
     position: relative;
     z-index: 100;
+    float: left;
 }
 ul, ol, li {
     list-style: none outside none;
