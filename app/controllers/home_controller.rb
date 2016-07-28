@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    
     @nation_Afr = Africa.all
     @nation_Eur = Europe.all
     @nation_Ame = America.all
@@ -17,6 +18,7 @@ class HomeController < ApplicationController
     new_post = Writing.new
     new_post.title = params[:title]
     new_post.content = params[:content]
+    
     new_post.save
     
     redirect_to '/home/info'

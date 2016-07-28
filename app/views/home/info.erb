@@ -19,19 +19,23 @@
 </head>
     <body>
       <div class="menu-top slidePoint">	
-        <div class="container clearfix">
-
-            <div id="logo" class="fleft">
-                <a href="javascript:void(0);"><img src="images/logo.png" alt=""/></a>
+            <div class="container clearfix">
+                <div id="logo" class="fleft">
+                    <a href="javascript:void(0);"><img src="images/logo.png" alt=""/></a>
+                </div>
+                <div id="nav" class="fright">
+                    <ul class="nav nav-pills pull-right">
+                      <% if user_signed_in? %>
+                        <li><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
+                      <% else %>
+                        <li><%= link_to "로그인", new_user_session_path %></li>
+                        <li><%= link_to "회원가입", new_user_registration_path %></li>
+                      <% end %>
+                    </ul>
+                </div>
             </div>
-		
-            <div id="nav" class="fright">
-                <a href="index.html"><i class="icon-reply"></i></a>
-            </div>
-	   
+        
         </div>
-    
-    </div>
         <div id="info-pages" class="container clearfix " style="margin-top: 90px;">
             <div class="grid_12 row" style="margin-bottom: 0">
                 <div class="col-md-8"> 
@@ -84,9 +88,9 @@
                                   <td class="mdl-data-table__cell--non-numeric">사기</td>
                                   <td>  <a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
                                
-                                  <td>김씨</td>
-                                  <td>5/15</td>
-                                  <td>556</td>
+                                  <td> 홍길동 </td>
+                                  <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
+                                  <td></td>
                                   <td>12</td>
 
                                 </tr>
