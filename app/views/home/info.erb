@@ -21,10 +21,11 @@
       <div class="menu-top slidePoint">	
             <div class="container clearfix">
                 <div id="logo" class="fleft">
-                    <a href="javascript:void(0);"><img src="images/logo.png" alt=""/></a>
+                    <a href="/"><img src="images/title_img.png" alt=""/></a>
                 </div>
                 <div id="nav" class="fright">
                     <ul class="nav nav-pills pull-right">
+                        <li><a href ="/home/twitter"> 커뮤니티 </a></li>
                       <% if user_signed_in? %>
                         <li><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
                       <% else %>
@@ -72,12 +73,13 @@
 <thead>
                                 <tr>
                                     
+                                      
                                   <th class="mdl-data-table__cell--non-numeric">분류</th>
-                                  <th>제목</th>
+                                  <th>글제목</th>
                                   <th>작성자</th>
                                   <th>작성일</th>
-                                  <th>조회</th>
-                                  <th>추천수</th>
+                                  <th>조회수</th>
+                                  <th>댓글수</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -91,7 +93,7 @@
                                   <td> 홍길동 </td>
                                   <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
                                   <td></td>
-                                  <td>12</td>
+                                  <td><%= r.replies.count %></td>
 
                                 </tr>
                                 <% end %>

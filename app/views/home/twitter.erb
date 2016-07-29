@@ -1,39 +1,57 @@
-<div class = "container">
-<div class ="well">
-<form action ="/home/twitter_write" method="POST">
-  <div class="form-group" >
-    <label for="exampleInputEmail1">제목</label>
-    <input type="text" class="form-control" name="twitter_title" placeholder="제목">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">내용</label>
-    <textarea class="form-control" name="twitter_content" placeholder="내용" rows="7"> </textarea>
-  </div>
-  <button type="submit" class="btn btn-default"> 작성 </button>
-</form>
-
-<% @every_twitter.each do |p| %>
-    <h3>-제목-<h3>
-        <hr>
-        
-<%= p.twitter_title %>
-<hr>
- <h3>-내용-<h3>
-<%= p.twitter_content %>
-<br>
-<h3> -댓글- </h3>
-<% p. twitter_comment.each do |r| %>
-<br>
-                   <%= r.twitter_comment %>
-                   <br>
-                   <% end %>
-
-<form action="/home/twitter_comment" method="POST">
-    <textarea id="twitter_<%= p.id %>"name="twitter_comment"> </textarea>
-    <button value="<%= p.id %>" type="submit" class="btn btn-default">Submit</button>
-    </form>
-
-<% end %>
-
+<div class="menu-top slidePoint">	
+            <div class="container clearfix">
+                <div id="logo" class="fleft">
+                    <a href="/"><img src="images/title_img.png" alt=""/></a>
+                </div>
+                <div id="nav" class="fright">
+                    <ul class="nav nav-pills pull-right">
+                        <li><a href ="/home/twitter"> 커뮤니티 </a></li>
+                      <% if user_signed_in? %>
+                        <li><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
+                      <% else %>
+                        <li><%= link_to "로그인", new_user_session_path %></li>
+                        <li><%= link_to "회원가입", new_user_registration_path %></li>
+                      <% end %>
+                    </ul>
+                </div>
+            </div>
 </div>
+
+
+<div class="container clearfix " style="margin-top: 77px;">
+    <div class = "well">
+        <form action ="/home/twitter_write" method="POST">
+          <div class="form-group" >
+            <label for="exampleInputEmail1">제목</label>
+            <input type="text" class="form-control" name="twitter_title" placeholder="제목을 입력하세요">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">내용</label>
+            <textarea type="text"class="form-control" name="twitter_content" placeholder="내용을 입력하세요" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn-default"> 작성 </button>
+        </form>
+    </div>
+    
+    <% @every_twitter.each do |p| %>
+        <h3>-제목-<h3>
+                <hr>
+        <%= p.twitter_title %>
+        <hr>
+        <h3>-내용-<h3>
+        <%= p.twitter_content %>
+        <br>
+        <h3> -댓글- </h3>
+            <% p. twitter_comment.each do |r| %>
+                <br>
+            <%= r.twitter_comment %>
+                <br>
+            <% end %>
+        
+    <form action="/home/twitter_comment" method="POST">
+        <textarea id="twitter_<%= p.id %>"name="twitter_comment"> </textarea>
+        <button value="<%= p.id %>" type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <% end %>
+    
 </div>
