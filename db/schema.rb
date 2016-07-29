@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727191117) do
+ActiveRecord::Schema.define(version: 20160729071322) do
 
   create_table "africas", force: :cascade do |t|
     t.string   "img"
@@ -48,6 +48,20 @@ ActiveRecord::Schema.define(version: 20160727191117) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "twitter_comments", force: :cascade do |t|
+    t.string   "twitter_id"
+    t.string   "twitter_comment"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "twitters", force: :cascade do |t|
+    t.string   "twitter_title"
+    t.string   "twitter_content"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -69,6 +83,7 @@ ActiveRecord::Schema.define(version: 20160727191117) do
   create_table "writings", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -54,4 +54,30 @@ class HomeController < ApplicationController
     redirect_to :back
     end
    
+   def twitter
+      @every_twitter = Twitter.all
+   end
+   
+   def twitter_write
+    @twitter_title = params[:twitter_title]
+    @twitter_content = params[:twitter_content]
+    
+    new_twitter = Twitter.new
+    new_twitter.twitter_title = @twitter_title
+    new_twitter.twitter_content = @twitter_content
+    new_twitter.save
+    
+    redirect_to "/home/twitter"
+    
+   end
+   
+   def twitter_comment
+    twitter_comment =Twitter_comment.new
+    twitter_comment.twitter_id = params[:twitter_id]
+    twitter_comment.twitter_comment = params[:twitter_comment]
+    twitter_comment.save
+    redirect_to '/home/twitter'
+
+   end
+   
 end
