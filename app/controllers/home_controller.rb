@@ -55,7 +55,7 @@ class HomeController < ApplicationController
     end
    
    def twitter
-      @every_twitter = Twitter.all
+      @every_twitter = Twitter.all.order("id desc")
    end
    
    def twitter_write
@@ -72,7 +72,7 @@ class HomeController < ApplicationController
    end
    
    def twitter_comment
-    twitter_comment =Twitter_comment.new
+    twitter_comment = twitter_comment.new
     twitter_comment.twitter_id = params[:twitter_id]
     twitter_comment.twitter_comment = params[:twitter_comment]
     twitter_comment.save

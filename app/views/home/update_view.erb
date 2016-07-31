@@ -1,3 +1,23 @@
+<div class="menu-top">	
+        <div class="container clearfix">
+            <div id="logo" class="fleft">
+                <a class="navbar-brand" href="/">Travel Compass</a>
+            </div>
+            <div id="nav" class="fright">
+                <ul class="nav nav-pills pull-right">
+                    <li><a href ="/home/twitter"> 커뮤니티 </a></li>
+                  <% if user_signed_in? %>
+                    <li><%= current_user.email %><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
+                  <% else %>
+                    <li><%= link_to "로그인", new_user_session_path %></li>
+                    <li><%= link_to "회원가입", new_user_registration_path %></li>
+                  <% end %>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            </div>
+        </div>
+
 <h1> -글을 수정하는 페이지- </h1>
 
         <div class = "container" style=" margin-top: 100px;">

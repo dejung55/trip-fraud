@@ -18,28 +18,30 @@
 
 </head>
     <body>
-      <div class="menu-top slidePoint">	
-            <div class="container clearfix">
-                <div id="logo" class="fleft">
-                    <a href="/"><img src="images/title_img.png" alt=""/></a>
-                </div>
-                <div id="nav" class="fright">
-                    <ul class="nav nav-pills pull-right">
-                        <li><a href ="/home/twitter"> 커뮤니티 </a></li>
-                      <% if user_signed_in? %>
-                        <li><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
-                      <% else %>
-                        <li><%= link_to "로그인", new_user_session_path %></li>
-                        <li><%= link_to "회원가입", new_user_registration_path %></li>
-                      <% end %>
-                    </ul>
-                </div>
+        <div class="menu-top">	
+        <div class="container clearfix">
+            <div id="logo" class="fleft">
+                <a class="navbar-brand" href="/">Travel Compass</a>
             </div>
-        
+            <div id="nav" class="fright">
+                <ul class="nav nav-pills pull-right">
+                    <li><a href ="/home/twitter"> 커뮤니티 </a></li>
+                  <% if user_signed_in? %>
+                    <li><%= current_user.email %><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
+                  <% else %>
+                    <li><%= link_to "로그인", new_user_session_path %></li>
+                    <li><%= link_to "회원가입", new_user_registration_path %></li>
+                  <% end %>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            </div>
         </div>
-        <div id="info-pages" class="container clearfix " style="margin-top: 90px;">
-            <div class="grid_12 row" style="margin-bottom: 0">
-                <div class="col-md-8"> 
+            
+        
+        <div id="info-pages" class="container clearfix " style="margin-top: 120px;">
+            <div class="grid_12 row" style="margin-bottom: 1000">
+                <div class="col-md-6"> 
                  <div class="cycle-slideshow featured-image" data-cycle-fx="scrollHorz" data-cycle-timeout="2000">
                     <div class="cycle-pager"></div>
                     <div class="cycle-caption"></div>
@@ -48,10 +50,9 @@
                     <img src="http://placehold.it/527x395" alt=""/>
                     <img src="http://placehold.it/527x395" alt=""/>
                     
-                   </div>
+                 </div>
                 </div>
-                <div class="col-md-4" style="margin-right: 0;">
-                    
+                <div class="col-md-6" style="margin-right: 0;">
                     <ul class="tour-meta">
                         <li><i class="icon-map-marker"></i><strong>Destination:</strong> Thailand</li>				
                         <li><i class="icon-time"></i><span></span><strong>Duration:</strong> 7 days</li>		
@@ -63,64 +64,42 @@
                        </p>
                         <input type="submit" class="contact_btn send_btn" value="Book Now" />
                         <input type="reset" class="contact_btn" value="Ask a Question" />
-					
                 </div>
             </div>  
             
             <form action=""> 
-            <div class = "container">
-    <table class="table table-hover">
-<thead>
-                                <tr>
-                                    
-                                      
-                                  <th class="mdl-data-table__cell--non-numeric">분류</th>
-                                  <th>글제목</th>
-                                  <th>작성자</th>
-                                  <th>작성일</th>
-                                  <th>조회수</th>
-                                  <th>댓글수</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                   <% @every_post.each do |r| %>
-
-                                <tr>
-                                   
-                                  <td class="mdl-data-table__cell--non-numeric">사기</td>
-                                  <td>  <a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
-                               
-                                  <td> 홍길동 </td>
-                                  <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
-                                  <td></td>
-                                  <td><%= r.replies.count %></td>
-
-                                </tr>
-                                <% end %>
-
-                                <tr>
-                                  <td class="mdl-data-table__cell--non-numeric">소매치기</td>
-                                  <td>소매치기당했어요ㅠㅠ</td>
-                                  <td>정씨</td>
-                                  <td>2/15</td>
-                                  <td>86</td>
-                                  <td>7</td>
-                                </tr>
-                                <tr>
-                                  <td class="mdl-data-table__cell--non-numeric">바가지요금</td>
-                                  <td>돈없어요ㅜㅜ</td>
-                                  <td>이씨</td>
-                                  <td>8/4</td>
-                                  <td>16</td>
-                                  <td>2</td>
-                                </tr>
-                              </tbody>
-</table>
-  <button type="submit" class="btn btn-default"><a href = "/home/write"> 작성 </a></button>
-
-</div>
-
-    <div id="footer">
+            <div class="grid_12 str_description">
+                <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
+                <h4>여행사기게시판</h4>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric">분류</th>
+                                <th>글제목</th>
+                                <th>작성자</th>
+                                <th>작성일</th>
+                                <th>조회수</th>
+                                <th>댓글수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @every_post.each do |r| %>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">사기</td>
+                                <td><a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
+                                <td> 홍길동 </td>
+                                <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
+                                <td></td>
+                                <td><%= r.replies.count %></td>
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                      <button type="submit" class="btn btn-default"><a href = "/home/write"> 작성 </a></button>
+            </div>
+        </div>
+        
+     <div id="footer">
         <div class="container clearfix">
             <div class="copyright">Travel the World &copy; 2020 | <a href="javascript:void(0);">Privacy Policy</a></div>
             
