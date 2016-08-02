@@ -9,7 +9,8 @@ class CreateWritings < ActiveRecord::Migration
       t.string :america_id
       t.string :europe_id
       t.string :africa_id
-      
+      t.integer :number, default: 0
+
 
       t.timestamps null: false
     end

@@ -35,7 +35,9 @@ class HomeController < ApplicationController
   end
   
   def read
-    @every_post= Writing.find(params[:id])  
+    @every_post= Writing.find(params[:id]) 
+    @every_post.number = @every_post.number + 1
+    @every_post.save
   end
   
   def destroy

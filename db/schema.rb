@@ -89,8 +89,9 @@ ActiveRecord::Schema.define(version: 20160729071322) do
     t.string   "america_id"
     t.string   "europe_id"
     t.string   "africa_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "number",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
