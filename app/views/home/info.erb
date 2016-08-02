@@ -16,85 +16,94 @@
     <link href="css/style_details.css" rel="stylesheet" type="text/css" />
 </head>
     <body>
-      <div class="menu-top slidePoint">	
+        <div class="menu-top">	
         <div class="container clearfix">
             <div id="logo" class="fleft">
-                <a href="javascript:void(0);"><img src="images/logo.png" alt=""/></a>
+                <a class="navbar-brand" href="/">Travel Compass</a>
             </div>
             <div id="nav" class="fright">
-                <a href="index.html"><i class="icon-reply"></i></a>
+                <ul class="nav nav-pills pull-right">
+                    <li><a href ="/home/twitter"> 커뮤니티 </a></li>
+                  <% if user_signed_in? %>
+                    <li><%= current_user.email %><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
+                  <% else %>
+                    <li><%= link_to "로그인", new_user_session_path %></li>
+                    <li><%= link_to "회원가입", new_user_registration_path %></li>
+                  <% end %>
+                </ul>
+                <div class="clear"></div>
+            </div>
             </div>
         </div>
-      </div>
+            
         
-        <div id="info-pages" class="container clearfix " style="margin-top: 90px;">
-            <div class="grid_12 row" style="margin-bottom: 0">
-                <div class="col-md-8"> 
-                     <div class="cycle-slideshow featured-image" data-cycle-fx="scrollHorz" data-cycle-timeout="2000">
-                        <div class="cycle-pager"></div>
-                        <div class="cycle-caption"></div>
-                            <img src="http://placehold.it/527x395" alt=""/>
-                            <img src="http://placehold.it/527x395" alt=""/>
-                            <img src="http://placehold.it/527x395" alt=""/>
-                       </div>
+        <div id="info-pages" class="container clearfix " style="margin-top: 120px;">
+            <div class="grid_12 row" style="margin-bottom: 1000">
+                <div class="col-md-6"> 
+                 <div class="cycle-slideshow featured-image" data-cycle-fx="scrollHorz" data-cycle-timeout="2000">
+                    <div class="cycle-pager"></div>
+                    <div class="cycle-caption"></div>
+
+                    <img src="http://placehold.it/527x395" alt=""/>
+                    <img src="http://placehold.it/527x395" alt=""/>
+                    <img src="http://placehold.it/527x395" alt=""/>
+                    
+                 </div>
                 </div>
-                    <div class="col-md-4" style="margin-right: 0;">
-                        <ul class="tour-meta">
-                            <li><i class="icon-map-marker"></i><strong>Destination:</strong> Thailand</li>				
-                            <li><i class="icon-time"></i><span></span><strong>Duration:</strong> 7 days</li>		
-                            <li><i class="icon-money"></i><span></span><strong>Price:</strong> $589</li>		
-                        </ul>
-                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas vehicula porttitor condimentum. Curabitur id lobortis lectus. Praesent tincidunt blandit feugiat. Donec sollicitudin vulputate orci eget commodo justo pulvinar rumus.</p>
-                        <p>Nullam tempor, magna ac tempus rutrum, quam metus pharetra enim, at luctus tortor sapien eget eros. Morbi mattis, arcu nec semper aliquet, tortor augue eleifend tellus, at consequat magna sapien id metus. Nulla commodo vulputate feugiat. 
-                            Nam vel ante massa, eget semper enim. Mauris fermentum ipsum eu lacus fringilla dignissim. Curabitur eget ante tellus.  
+                <div class="col-md-6" style="margin-right: 0;">
+                    <ul class="tour-meta">
+                        <li><i class="icon-map-marker"></i><strong>Destination:</strong> Thailand</li>				
+                        <li><i class="icon-time"></i><span></span><strong>Duration:</strong> 7 days</li>		
+                        <li><i class="icon-money"></i><span></span><strong>Price:</strong> $589</li>		
+                    </ul>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas vehicula porttitor condimentum. Curabitur id lobortis lectus. Praesent tincidunt blandit feugiat. Donec sollicitudin vulputate orci eget commodo justo pulvinar rumus.</p>
+                    <p>Nullam tempor, magna ac tempus rutrum, quam metus pharetra enim, at luctus tortor sapien eget eros. Morbi mattis, arcu nec semper aliquet, tortor augue eleifend tellus, at consequat magna sapien id metus. Nulla commodo vulputate feugiat. 
+                        Nam vel ante massa, eget semper enim. Mauris fermentum ipsum eu lacus fringilla dignissim. Curabitur eget ante tellus.  
                        </p>
                         <input type="submit" class="contact_btn send_btn" value="Book Now" />
                         <input type="reset" class="contact_btn" value="Ask a Question" />
-					
-                    </div>
-             </div>  
+                </div>
+            </div>  
             
-            <form action=""> 
-                <div class = "container">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
+            <form>
+                <div class="grid_12 str_description">
+                    <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
+                        <h4>여행사기게시판</h4>
+                        <table class="table table-hover">
+                         <thead>                
+                             <tr>
                                 <th class="mdl-data-table__cell--non-numeric">분류</th>
-                                <th>제목</th>
-                                <th><th>
+                                <th>글제목</th>
                                 <th>작성자</th>
                                 <th>작성일</th>
-                                <th>조회</th>
-                                <th>추천수</th>
+                                <th>조회수</th>
+                                <th>댓글수</th>
                             </tr>
                         </thead>
-                          <tbody>
-                   
+                        <tbody>
                               <% @every_post1.writings.each do |r| %>
-                
                             <tr>
                               <td class="mdl-data-table__cell--non-numeric">사기</td>
                               <td><a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
-                              <td>김씨</td>
-                              <td>5/15</td>
-                              <td>556</td>
-                              <td>12</td>
+                              <td> <%= r.user.email%> </td>
+                              <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
+                              <td></td>
+                              <td><%= r.replies.count %></td>
                             </tr>
                              <% end %>
-                          </tbody>
+                        </tbody>
                     </table>
-                    
-                          <button type="submit" class="btn btn-default"><a href="/home/write/<%= @every_post1.id %>"> 작성 </a></button>
-                    
-                    
-
-
-                </div>
-                    <div id="footer">
-                        <div class="container clearfix">
-                            <div class="copyright">Travel the World &copy; 2020 | <a href="javascript:void(0);">Privacy Policy</a></div>
-                        </div>
-                    </div>
-             </form>
+                      <button type="submit" class="btn btn-default"><a href = "/home/write/<%= @every_post1.id %>"> 작성 </a></button>
+            </div>
+        </div>
+       
+        
+     <div id="footer">
+        <div class="container clearfix">
+            <div class="copyright">Travel the World &copy; 2020 | <a href="javascript:void(0);">Privacy Policy</a></div>
+            
+        </div>
+    </div>
+ </form>
 </html>
 

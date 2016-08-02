@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="menu-top">	
+        <div class="container clearfix">
+            <div id="logo" class="fleft">
+                <a class="navbar-brand" href="/">Travel Compass</a>
+            </div>
+            <div id="nav" class="fright">
+                    <ul class="nav nav-pills pull-right">
+                        <li><a href ="/home/twitter"> 커뮤니티 </a></li>
+                      <% if user_signed_in? %>
+                        <li><%= current_user.email %><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
+                      <% else %>
+                        <li><%= link_to "로그인", new_user_session_path %></li>
+                        <li><%= link_to "회원가입", new_user_registration_path %></li>
+                      <% end %>
+                    </ul>
+            <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6" style="margin-top: 90px;">
+            <div class="well" style = " padding-top: 0px;padding-bottom: 10px; background:white">
+                <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
+                <h2 style = "text-align: left">자유게시판</h2>
+                    <form action ="/home/twitter_write" method="POST">
+                          <div class="form-group" >
+                            <label for="exampleInputEmail1"></label>
+                            <input type="text" class="form-control" name="twitter_title" placeholder="제목을 입력하세요">
+                          
+                            <label for="exampleInputPassword1"></label>
+                            <textarea type="text"class="form-control" name="twitter_content" placeholder="내용을 입력하세요" rows="3"></textarea>
+                          </div>
+                      <button type="submit" class="btn btn-default" > 작성 </button>
+                    </form>
+            </div>
+            
+            <div class="well" style = " padding-top: 0px;padding-bottom: 10px; background:white">
+                    <% @every_twitter.each do |p| %>
+                   
+                    <h5><%= p.twitter_title %></h5>
+                    <hr>
+                    <%= p.twitter_content %>
+                    <br>
+                        <% p. twitter_comment.each do |r| %>
+                        <%= r.twitter_comment %>
+                        <% end %>
+                        <form action="/home/twitter_comment" method="POST">
+                            <p>댓글</p>
+                            <textarea id="twitter_<%= p.id %>"name="twitter_comment"rows="1"> </textarea>
+                            <button value="<%= p.id %>" type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                        <% end %>
+            </div>      
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    
+    <div id="footer">
+        <div class="container clearfix">
+            <div class="copyright">Travel the World &copy; 2020 | <a href="javascript:void(0);">Privacy Policy</a></div>
+        </div>
+    </div>
+ </form>
+</html>
+    
+
+
+    
+
+  
+
