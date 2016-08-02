@@ -51,6 +51,10 @@ ActiveRecord::Schema.define(version: 20160722083653) do
   create_table "writings", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
+    t.string   "post_id"
+    t.string   "america_id"
+    t.string   "europe_id"
+    t.string   "africa_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

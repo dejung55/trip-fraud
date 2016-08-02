@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'africa/info'
+
+  get 'europe/info'
+
+  get 'america/read'
+
   get ":controller(/:action(/:id))"
   post ":controller(/:action(/:id))"
   

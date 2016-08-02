@@ -1,3 +1,5 @@
+<!-- africa -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -69,12 +71,10 @@
                             </tr>
                         </thead>
                           <tbody>
-                   
                               <% @every_post1.writings.each do |r| %>
-                
                             <tr>
                               <td class="mdl-data-table__cell--non-numeric">사기</td>
-                              <td><a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
+                              <td><a href=/america/read/<%= r.id %>> <%= r.title %></a></td>
                               <td>김씨</td>
                               <td>5/15</td>
                               <td>556</td>
@@ -83,12 +83,7 @@
                              <% end %>
                           </tbody>
                     </table>
-                    
-                          <button type="submit" class="btn btn-default"><a href="/home/write/<%= @every_post1.id %>"> 작성 </a></button>
-                    
-                    
-
-
+                          <button type="submit" class="btn btn-default"><a href="/america/write/<%= @every_post1.id %>"> 작성 </a></button>
                 </div>
                     <div id="footer">
                         <div class="container clearfix">

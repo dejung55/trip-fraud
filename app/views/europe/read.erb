@@ -1,3 +1,5 @@
+<!-- europe -->
+
 <div class = "container-nation" style="height:100px; background-color: white; padding-left:20px;" align="left">
     <img src="/assets/title_img.png" style="height: 80px; margin-top:5px; margin-bottom:0px; margin-left: 10px; margin-right: 10px;"/>
     <img src="/assets/title_text.png" style="height: 50px; margin-top:5px;margin-bottom:0px; margin-left: 10px; margin-right: 10px;"/>
@@ -11,10 +13,10 @@
                 </div>
                 <hr>
 
-                <form action="/home/destroy/<%= @every_post.id %>" method="post">
+                <form action="/europe/destroy/<%= @every_post.id %>" method="post">
                     <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
                 </form>
-                <form action="/home/update_view/<%= @every_post.id %>" method="post">
+                <form action="/europe/update_view/<%= @every_post.id %>" method="post">
                     <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
                 </form>
         </div>
@@ -25,7 +27,7 @@
                     <%= r.content %><hr>
                 <% end %>
                 
-                <form style="margin-top:4px;" action="/home/reply_write" method="POST">
+                <form style="margin-top:4px;" action="/europe/reply_write" method="POST">
                     <input type="hidden" value="<%= @every_post.id%>" name="id_of_post">
                     <textarea name="content" class="form-control" rows="2" id="commit"></textarea>
                     <button type="submit" class="btn btn-default" style="margin-top:30px">전송</button>

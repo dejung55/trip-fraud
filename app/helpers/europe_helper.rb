@@ -1,0 +1,2 @@
+module EuropeHelper
+end
