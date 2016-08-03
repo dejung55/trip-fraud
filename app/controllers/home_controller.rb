@@ -72,15 +72,6 @@ class HomeController < ApplicationController
     @one_post.save
     redirect_to "/home/info"
     end
-    
-    def reply_write
-        
-    reply = Reply.new
-    reply.content = params[:content]
-    reply.writing_id = params[:id_of_post]
-    reply.save
-    redirect_to :back
-    end
    
    def twitter
       @every_twitter = Twitter.all.order("id desc")
@@ -100,10 +91,10 @@ class HomeController < ApplicationController
    end
    
    def twitter_comment
-    twitter_comment = twitter_comment.new
-    twitter_comment.twitter_id = params[:twitter_id]
-    twitter_comment.twitter_comment = params[:twitter_comment]
-    twitter_comment.save
+     new_comment = TwitterComment.new
+     new_comment.twitter_id = params[:twitter_id]
+     new_comment.twitter_comment = params[:twitter_comment]
+     new_comment.save
     redirect_to '/home/twitter'
 
    end
