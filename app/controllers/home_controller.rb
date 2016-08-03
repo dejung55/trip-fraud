@@ -1,10 +1,12 @@
 class HomeController < ApplicationController
+  
   def index
     
     @nation_Afr = Africa.all
     @nation_Eur = Europe.all
     @nation_Ame = America.all
     @nation_Asi = Post.all
+    
   end
   
   def info
@@ -15,9 +17,9 @@ class HomeController < ApplicationController
   
   def write
 
-      unless user_signed_in?
+    unless user_signed_in?
       redirect_to '/users/sign_in'
-      end
+    end
       @one_post = Post.find(params[:id].to_i)
      
   end
@@ -30,57 +32,77 @@ class HomeController < ApplicationController
     new_post.post_id = params[:id_of_post]
     new_post.user = current_user
     new_post.save
-
-    redirect_to "/home/info/#{new_post.id}"
+    
+    redirect_to "/home/info/#{new_post.post_id}"
+    
   end
   
   def read
+      
     @every_post= Writing.find(params[:id]) 
     @every_post.number = @every_post.number + 1
-    @every_post.save
+    @every_post.save 
+    
   end
   
   def destroy
+      
     @one_post = Writing.find(params[:id])
     @one_post.destroy
-    redirect_to "/home/info"
+    
+    redirect_to "/"
+    
   end
   
-   def update_view
+  def update_view
+      
     @one_post = Writing.find(params[:id])
-   end
+    
+  end
    
-   def update
-     @one_post = Writing.find(params[:id])
-     @one_post.title = params[:title]
-     @one_post.content = params[:content]
-     @one_post.save
-     redirect_to "/home/read/#{@one_post.id}"
-   end
-   
-   def reply_write
-     reply = Reply.new
-     reply.content = params[:content]
-     reply.writing_id = params[:id_of_post]
-     reply.save
-     redirect_to :back
-   end
-    def update
+  def update
+      
     @one_post = Writing.find(params[:id])
     @one_post.title = params[:title]
     @one_post.content = params[:content]
     @one_post.save
+    
+    redirect_to "/home/read/#{@one_post.id}"
+    
+  end
+   
+  def reply_write
+      
+    reply = Reply.new
+    reply.content = params[:content]
+    reply.writing_id = params[:id_of_post]
+    reply.save
+    
+    redirect_to :back
+    
+  end
+   
+  def update
+      
+    @one_post = Writing.find(params[:id])
+    @one_post.title = params[:title]
+    @one_post.content = params[:content]
+    @one_post.save
+    
     redirect_to "/home/info"
-    end
+    
+  end
    
-   def twitter
-      @every_twitter = Twitter.all.order("id desc")
-   end
+  def twitter
+      
+    @every_twitter = Twitter.all.order("id desc")
+    
+  end
    
-   def twitter_write
+  def twitter_write
+  
     @twitter_title = params[:twitter_title]
     @twitter_content = params[:twitter_content]
-    
     new_twitter = Twitter.new
     new_twitter.twitter_title = @twitter_title
     new_twitter.twitter_content = @twitter_content
@@ -88,15 +110,17 @@ class HomeController < ApplicationController
     
     redirect_to "/home/twitter"
     
-   end
+  end
    
-   def twitter_comment
-     new_comment = TwitterComment.new
-     new_comment.twitter_id = params[:twitter_id]
-     new_comment.twitter_comment = params[:twitter_comment]
-     new_comment.save
+  def twitter_comment
+      
+    new_comment = TwitterComment.new
+    new_comment.twitter_id = params[:twitter_id]
+    new_comment.twitter_comment = params[:twitter_comment]
+    new_comment.save
+    
     redirect_to '/home/twitter'
 
-   end
+  end
    
 end

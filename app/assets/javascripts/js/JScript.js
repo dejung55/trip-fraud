@@ -5,7 +5,7 @@
 
 (function ($) {
     $(document).ready(function () {
-        initialize();
+     
         // Add classes for other carousels
         var $carousel = $('.latest-work-jc, .latest-posts-jc, .testimonials-jc');
 
@@ -105,39 +105,6 @@
 
 /*jslint smarttabs:true */
 //FANCYBOX-------------------------------------------------------
-$(document).ready(function () {
-//    $('.fancybox').fancybox();
-    $(".fancybox").live("mousedown", function () {
-        $(this).fancybox(
-			{
-			    'titleShow': false,
-			    'overlayShow': false,
-			    'transitionIn': 'elastic',
-			    'transitionOut': 'elastic'
-			});
-    });
-    $("a.iframe").fancybox(
-
-	  {
-	      'titleShow': true,
-	      'autoDimensions': true,
-	      'width': 800,
-	      'height': 450,
-	      'autoScale': true,
-	      'type': 'iframe'
-
-	  });
-
-	  $(".show_maps").fancybox({
-	      'width': '75%',
-	      'height': '75%',
-	      'autoScale': false,
-	      'transitionIn': 'none',
-	      'transitionOut': 'none',
-	      'type': 'iframe'
-	  });
-
-});
 
 //JSHint Validated Custom JS Code
 $(document).ready(function() {
@@ -214,7 +181,7 @@ $(document).ready(function() {
 jQuery(document).ready(function ($) {
 
 
-    $(window).stellar();
+   
 
     
     var links = $('.navigation').find('li');
@@ -229,21 +196,7 @@ jQuery(document).ready(function ($) {
     }
     /**/
 
-    slide.waypoint(function (event, direction) {
-
-        dataslide = $(this).attr('data-slide');
-
-        if (direction === 'down') {
-            $('.navigation li[data-slide="' + dataslide + '"]').addClass('active').prev().removeClass('active');
-
-            $('.navigation li[data-slide="1"]').removeClass('active');
-
-        }
-        else {
-            $('.navigation li[data-slide="' + dataslide + '"]').addClass('active').next().removeClass('active');
-        }
-            
-    });
+  
 
     mywindow.scroll(function () {
         if (mywindow.scrollTop() === 0) {
@@ -280,10 +233,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-    //CALENDAR
-    $("#datepicker, #datepicker2").datepicker({
-        inline: true
-    });
+  
 
     // Hover states on the static widgets
     $("#dialog-link, #icons li").hover(

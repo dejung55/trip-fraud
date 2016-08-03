@@ -10,11 +10,7 @@
 
     });
 
-    $(window).load(function () {
-
-        setupFlexSlider();
-
-    });
+  
     function flexSliderCaption() {
         $('.flexslider .slides li')
             .mouseenter(function() {
@@ -29,12 +25,6 @@
             });
     }
 
-    function setupFlexSlider() {
-        $('.flexslider').flexslider({
-            animation: "slide",
-            slideshow: true,
-            startAt: 1
-        });
-    }
+   
 })();
 // =============== Flex slider functions END =============== //

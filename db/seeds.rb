@@ -25,6 +25,7 @@ America.create( id: "4", title2:"아르헨티나", img2: "http://cdnweb01.wikitr
 America.create( id: "5", title2:"브라질", img2: "http://www.icons.or.kr/attach/board/migration/icons/cooper371/1243489097.02.jpg")
 
 
+
 Europe.create( id: "0", title1:"프랑스", img1: "http://cdnweb01.wikitree.co.kr/webdata/editor/201511/24/img_20151124142442_ed30474f.png")
 Europe.create( id: "1", title1:"영국", img1: "http://cfile208.uf.daum.net/image/211DBE43510B5F4E2DF8B5")
 Europe.create( id: "2", title1:"독일", img1: "http://www.icons.or.kr/attach/board/migration/icons/cooper371/1243489097.02.jpg")
