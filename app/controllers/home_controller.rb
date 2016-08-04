@@ -20,6 +20,7 @@ class HomeController < ApplicationController
     unless user_signed_in?
       redirect_to '/users/sign_in'
     end
+     
       @one_post = Post.find(params[:id].to_i)
      
   end
@@ -57,6 +58,7 @@ class HomeController < ApplicationController
   def update_view
       
     @one_post = Writing.find(params[:id])
+  
     
   end
    
@@ -66,6 +68,8 @@ class HomeController < ApplicationController
     @one_post.title = params[:title]
     @one_post.content = params[:content]
     @one_post.save
+    
+    
     
     redirect_to "/home/read/#{@one_post.id}"
     

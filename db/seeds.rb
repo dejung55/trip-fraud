@@ -43,3 +43,22 @@ Europe.create( id: "12", title1:"네덜란드", img1: "http://cdnweb01.wikitree.
 
 Africa.create( id: "0", title:"이집트", img: "http://cfile208.uf.daum.net/image/211DBE43510B5F4E2DF8B5")
 Africa.create( id: "1", title:"남아공", img: "http://cfile208.uf.daum.net/image/211DBE43510B5F4E2DF8B5")
+
+Asia1.create( asiaimg: "/assets/map/asia/japan.png", post_id: 0)
+Asia1.create( asiaimg: "/assets/map/asia/china.png", post_id: 1)
+Asia1.create( asiaimg: "/assets/map/asia/philippines.png", post_id: 2)
+Asia1.create( asiaimg: "/assets/map/asia/vietnam.png", post_id: 3)
+Asia1.create( asiaimg: "/assets/map/asia/India.png", post_id: 4)
+Asia1.create( asiaimg: "/assets/map/asia/japan.png", post_id: 5)
+Asia1.create( asiaimg: "/assets/map/asia/hongkong.png", post_id: 6)
+Asia1.create( asiaimg: "/assets/map/asia/singapore.png", post_id: 7)
+
+Twitter.create(random: "가방")
+Twitter.create(random: "나비")
+Twitter.create(random: "준수")
+Twitter.create(random: "수준")
+Twitter.create(random: "사자")
+Twitter.create(random: "자전거")
+Twitter.create(random: "거미")
+
+
