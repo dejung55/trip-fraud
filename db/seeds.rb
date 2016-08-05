@@ -53,3 +53,6 @@ Asia1.create( asiaimg: "/assets/map/asia/japan.png", post_id: 5)
 Asia1.create( asiaimg: "/assets/map/asia/hongkong.png", post_id: 6)
 Asia1.create( asiaimg: "/assets/map/asia/singapore.png", post_id: 7)
 
+
+
+

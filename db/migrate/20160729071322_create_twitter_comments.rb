@@ -4,6 +4,7 @@ class CreateTwitterComments < ActiveRecord::Migration
       
       t.string :twitter_id
       t.string :twitter_comment
+      t.string :name
       
       t.timestamps null: false
     end
