@@ -1,4 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+  <script>
+  tinymce.init({
+    selector: '#mytextarea'
+  });
+  </script>
+</head>
 
+<body>
+
+  
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           
@@ -17,15 +30,14 @@
                   <li><a href="#">홈으로</a></li>
                   <li><a href="#">로그아웃</a></li>
                 </ul>
-                <form class="container" id="nav_center" >
-                  <input type="text" class="form-control" placeholder="국가명 검색">
-                  <button type="submit" class="btn btn-default"> 이동 </button>
-                </form>
+                
             </div>
             
       </div>
     </nav>
     
+    
+
     <form action="/home/pass" method="POST">
         <div class = "container" style=" margin-top: 100px;">
           <div class="form-group">
@@ -35,7 +47,7 @@
             <br>
             <label for="exampleInputEmail1"> - 내용 - </label>
             <input type="text" value="<%= @one_post.id%>" name="id_of_post">
-            <textarea class="form-control" rows="30" placeholder="내용을 입력해주세요" name="content"></textarea>
+            <textarea id="mytextarea"class="form-control" rows="15" placeholder="내용을 입력해주세요" name="content"></textarea>
           <br>
             <button type="submit" class="btn btn-default"> 작성 </button>
     </form>
@@ -48,3 +60,5 @@
         <p>&copy; Travel Compass. Team. 영남대학교 멋쟁이사자처럼 </p>
       </footer>
 </div>
+</body>
+</html>

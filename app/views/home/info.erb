@@ -12,6 +12,17 @@
             <div id="logo" class="fleft">
                 <a class="navbar-brand" href="/">Travel Compass</a>
             </div>
+            
+            
+            <div id="nav" class="fright">
+                 <form action="/home/info" method="GET" class="search">
+                    <div class="field">
+                      <input type="text" class="input-search" id="input-search" name="country" required>
+                      <label for="input-search">다른나라도 찾아보세요.</label>
+                    </div> <!-- /field -->
+                  </form>
+            </div>
+            
             <div id="nav" class="fright">
                 <ul class="nav nav-pills pull-right">
                     <li><a href ="/home/twitter"> 커뮤니티 </a></li>
@@ -55,14 +66,15 @@
             </div>  
             
             <form>
-                <div class="grid_12 str_description">
+
+                <div class ="container">
+                <div class="well" style = "margin-top:450px;padding-bottom: 10px; background:white">
                     <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
-                        <h4>여행사기게시판</h4>
-                          
+                        <h2 style="text-align:left">여행사기게시판</h2>
                         <table class="table table-hover">
                          <thead>                
                              <tr>
-                                <th class="mdl-data-table__cell--non-numeric">분류</th>
+                                <th>번호</th>
                                 <th>글제목</th>
                                 <th>작성자</th>
                                 <th>작성일</th>
@@ -73,7 +85,7 @@
                         <tbody>
                               <% @every_post1.writings.each do |r| %>
                             <tr>
-                              <td class="mdl-data-table__cell--non-numeric">사기</td>
+                              <td><%= r.id %></td>
                               <td><a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
                               <td> <%= r.user.email%> </td>
                               <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
@@ -85,8 +97,9 @@
                     </table>
                       <input type="text" value="<%= @every_post1.id%>" name="id_of_post">
                       <button type="submit" class="btn btn-default"><a href = "/home/write/<%= @every_post1.id %>"> 작성 </a></button>
-            </div>
-        </div>
+                    </div>
+                </div>
+                </div>
        
         
      <div id="footer">
