@@ -80,6 +80,7 @@ class HomeController < ApplicationController
     reply = Reply.new
     reply.content = params[:content]
     reply.writing_id = params[:id_of_post]
+    reply.score = params[:rating]
     reply.save
     
     redirect_to :back
@@ -105,11 +106,10 @@ class HomeController < ApplicationController
    
   def twitter_write
   
-    @twitter_title = params[:twitter_title]
-    @twitter_content = params[:twitter_content]
     new_twitter = Twitter.new
-    new_twitter.twitter_title = @twitter_title
-    new_twitter.twitter_content = @twitter_content
+    new_twitter.twitter_title = params[:twitter_title]
+    new_twitter.twitter_content = params[:twitter_content]
+    new_twitter.score = params[:rating]
     new_twitter.save
     
     redirect_to "/home/twitter"

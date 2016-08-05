@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160803164652) do
 
   create_table "replies", force: :cascade do |t|
     t.string   "content"
+    t.integer  "score"
     t.string   "writing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,7 +66,6 @@ ActiveRecord::Schema.define(version: 20160803164652) do
   create_table "twitters", force: :cascade do |t|
     t.string   "twitter_title"
     t.string   "twitter_content"
-    t.string   "random"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
