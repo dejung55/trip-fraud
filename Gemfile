@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'tinymce-rails'
+gem 'faker'
 gem 'devise'
 gem 'turbolinks'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

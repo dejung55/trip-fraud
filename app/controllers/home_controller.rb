@@ -105,11 +105,11 @@ class HomeController < ApplicationController
    
   def twitter_write
   
-    @twitter_title = params[:twitter_title]
-    @twitter_content = params[:twitter_content]
+
     new_twitter = Twitter.new
-    new_twitter.twitter_title = @twitter_title
-    new_twitter.twitter_content = @twitter_content
+    new_twitter.twitter_title = params[:twitter_title]
+    new_twitter.twitter_content = params[:twitter_content]
+    new_twitter.twitter_name = params[:twitter_name]
     new_twitter.save
     
     redirect_to "/home/twitter"
@@ -121,6 +121,7 @@ class HomeController < ApplicationController
     new_comment = TwitterComment.new
     new_comment.twitter_id = params[:twitter_id]
     new_comment.twitter_comment = params[:twitter_comment]
+    new_comment.name = params[:name]
     new_comment.save
     
     redirect_to '/home/twitter'

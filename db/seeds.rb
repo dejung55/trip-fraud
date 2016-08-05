@@ -53,15 +53,5 @@ Asia1.create( asiaimg: "/assets/map/asia/japan.png", post_id: 5)
 Asia1.create( asiaimg: "/assets/map/asia/hongkong.png", post_id: 6)
 Asia1.create( asiaimg: "/assets/map/asia/singapore.png", post_id: 7)
 
-Twitter.create(random: "가방")
-Twitter.create(random: "나비")
-Twitter.create(random: "준수")
-Twitter.create(random: "수준")
-Twitter.create(random: "사자")
-Twitter.create(random: "자전거")
-Twitter.create(random: "거미")
-
-
-
 
 

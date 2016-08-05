@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160803164652) do
   create_table "twitter_comments", force: :cascade do |t|
     t.string   "twitter_id"
     t.string   "twitter_comment"
+    t.string   "name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 20160803164652) do
     t.string   "twitter_title"
     t.string   "twitter_content"
     t.string   "random"
+    t.string   "twitter_name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

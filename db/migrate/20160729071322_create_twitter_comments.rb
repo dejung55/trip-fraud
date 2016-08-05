@@ -3,7 +3,7 @@ class CreateTwitterComments < ActiveRecord::Migration
     create_table :twitter_comments do |t|
       t.string :twitter_id
       t.string :twitter_comment
-
+      t.string :name
       t.timestamps null: false
     end
   end

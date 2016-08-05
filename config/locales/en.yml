@@ -21,3 +21,13 @@
 
 en:
   hello: "Hello world"
+
+en:
+  faker:
+    name:
+      # Existing faker field, new data
+      first_name: [피카츄, 라이츄, 파이리, 꼬부기, 버터플, 야도란, 피존투, 또가스, 거북왕, 라프라스, 뮤츠, 망나뇽, 리자몽, 잠만보, 캐터피, 킹크랩, 성원숭, 망키, 홍수몬, 가디, 윈디, 미뇽, 신뇽, 프테라, 토게피, 포니타, 이브이, 쥬피썬더, 부스터, 샤미드, 식스테일, 나인테일, 뿔카노, 피존, 단데기, 뿔충이]
+
+      # New faker fields
+      last_name: [치코리타, 피츄, 삐삐, 픽시, 윈디, 리아코, 브케인, 팬텀, 케이시, 윤겔라, 후딘, 썬더, 프리저, 파이어, 찌리리공, 붐볼, 롱스톤, 꼬마돌, 알통몬, 딱구리, 모래두지, 고지, 근육몬, 괴력몬]
+      region: [South East Queensland, Wide Bay Burnett, Margaret River, Port Pirie, Gippsland, Elizabeth, Barossa]

@@ -4,7 +4,7 @@ class CreateTwitters < ActiveRecord::Migration
       t.string :twitter_title
       t.string :twitter_content
       t.string :random
-      
+      t.string :twitter_name 
       t.timestamps null: false
     end
   end
