@@ -58,6 +58,16 @@
                     <hr>
                         <%= p.twitter_content %>
                     <br>
+                    
+                        <form action="/home/twitter_destroy/<%= p.id %>" method="post">
+                            <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
+                        </form>
+                        <form action="/home/twitter_updateview/<%= p.id %>" method="post">
+                            <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
+                        </form>
+                    
+                    <br>
+                    
                                     <% p. twitter_comment.each do |r| %>
                                         <%= r.twitter_comment %> \ <%= r.name %>
                                     <% end %>

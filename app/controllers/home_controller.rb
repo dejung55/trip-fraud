@@ -110,8 +110,6 @@ class HomeController < ApplicationController
     new_twitter.twitter_title = params[:twitter_title]
     new_twitter.twitter_content = params[:twitter_content]
     new_twitter.twitter_name = params[:twitter_name]
-    new_twitter.score = params[:rating]
-
     new_twitter.save
     
     redirect_to "/home/twitter"
@@ -130,4 +128,31 @@ class HomeController < ApplicationController
 
   end
    
+   
+  def twitter_destroy
+    
+   @twitter_post = Twitter.find(params[:id]) 
+   @twitter_post.destroy
+  
+   redirect_to :back
+  
+  end
+  
+  def twitter_update
+    
+   @twitter_post = Twitter.find(params[:id])
+   @twitter_post.twitter_title = params[:twitter_title]
+   @twitter_post.twitter_content = params[:twitter_content]
+   @twitter_post.save
+   
+   redirect_to "/home/twitter"
+   
+  end
+  
+  def twitter_updateview
+    
+   @twitter_post = Twitter.find(params[:id])
+     
+  end
+  
 end
