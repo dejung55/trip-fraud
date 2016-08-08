@@ -163,4 +163,42 @@ class HomeController < ApplicationController
      
   end
   
+   def comment_destroy
+    @comment_post = TwitterComment.find(params[:id])
+    @comment_post.destroy
+     redirect_to :back
+   end
+  
+   def comment_update
+    @comment_post = TwitterComment.find(params[:id])
+    @comment_post.twitter_comment = params[:twitter_comment]
+    @comment_post.save
+    redirect_to "/home/twitter"
+   end
+  
+  def comment_updateview
+    @comment_post = TwitterComment.find(params[:id])
+  end
+  
+  def reply_destroy
+    @reply_post = Reply.find(params[:id])
+    @reply_post.destroy
+    
+    redirect_to :back
+    
+  end
+  
+  def reply_update
+    
+     @reply_post = Reply.find(params[:id])
+     @reply_post.content = params[:content]
+     @reply_post.save
+    
+    redirect_to "/home/info"
+  end
+  
+  def reply_updateview
+    @reply_post = Reply.find(params[:id])
+  end
+  
 end

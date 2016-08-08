@@ -34,6 +34,12 @@
                                 <% end %>    
                             </span>    
                     <%= r.content %><hr>
+                          <form action="/home/reply_destroy/<%= r.id %>" method="post">
+                                <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
+                          </form>
+                          <form action="/home/reply_updateview/<%= r.id %>" method="post">
+                                <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
+                          </form>
                 <% end %>
                 
                 <form style="margin-top:4px;" action="/home/reply_write" method="POST">
