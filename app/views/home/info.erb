@@ -71,34 +71,7 @@
             <div class="well" style = "margin-top:450px;padding-bottom: 10px; background:white">
                 <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
                 <h4>여행사기게시판</h4>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th class="mdl-data-table__cell--non-numeric">분류</th>
-                                <th>글제목</th>
-                                <th>작성자</th>
-                                <th>작성일</th>
-                                <th>조회수</th>
-                                <th>댓글수</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% @every_post.each do |r| %>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">사기</td>
-                                <td><a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
-                                <td> <%= r.user.email%> </td>
-                                <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
-                                <td><%= @writing_number %></td>
-                                <td><%= r.replies.count %></td>
-                            </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
-                      <button type="submit" class="btn btn-default"><a href = "/home/write"> 작성 </a></button>
-
-                    <h2 style="text-align:left">여행사기게시판</h2>
-                        <table class="table table-hover">
+                       <table class="table table-hover">
                              <thead>                
                                  <tr>
                                     <th>번호</th>

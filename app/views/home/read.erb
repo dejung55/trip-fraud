@@ -19,13 +19,10 @@
                     <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
                 </form>
         <% end %>
-<<<<<<< HEAD
         </div>  
         <div class="col-md-4" style="height:500px; width:300px; margin-top:150px; padding-top:50px; padding-bottom:30px; padding-left:20px; padding-right:20px; background-color:#DDDDDD">
-=======
          
         <div class="col-md-4" style="height:500px; width:300px; margin-top:150px; padding-top:50px; padding-bottom:30px; padding-left:20px; padding-right:20px; background-color:#eeeeee">
->>>>>>> af22f060c80720b4f31622174c0478e57e8d3483
                 <label for="exampleInputEmail1">댓글(<%= @every_post.replies.count %>)</label><hr>
                 <% @every_post.replies.each do |r| %>
                             <span class="star-rating small">            <!-- 별점 출력 되는 곳 -->
@@ -47,12 +44,10 @@
                 <% end %>
                 
                 <form style="margin-top:4px;" action="/home/reply_write" method="POST">
-<<<<<<< HEAD
                 <input type="hidden" value="<%= @every_post.id%>" name="id_of_post">
-                <textarea name="content" class="form-control" rows="2" id="commit"></textarea>
-                <button type="submit" class="btn btn-default" style="margin-top:30px">전송</button>
-                </form>
-=======
+           
+               
+          
                      <span class="star-rating small">
                           <input type="radio" name="rating" value="1"><i></i>
                           <input type="radio" name="rating" value="2"><i></i>
@@ -64,7 +59,6 @@
                     <textarea name="content" class="form-control" rows="2" id="commit" placeholder="별점 체크 후 평가를 남겨주세요"></textarea>
                     <button type="submit" class="btn btn-default" style="margin-top:30px">전송</button>
                 </form>        
->>>>>>> af22f060c80720b4f31622174c0478e57e8d3483
         </div>
     </div>
 </div>
