@@ -18,8 +18,15 @@ class HomeController < ApplicationController
   
   def search
     
-  @search = Post.where('title3 = ?', params[:search]).take.id
-  render "/home/search"
+  @search = Post.where('title3 = ?', params[:search]).take
+    
+    unless @search.nil?
+      redirect_to "/home/info/#{@search.id}"
+    else
+      redirect_to "/home/search1/"
+      
+    end
+
   
   end
   
