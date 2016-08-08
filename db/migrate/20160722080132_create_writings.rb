@@ -5,7 +5,7 @@ class CreateWritings < ActiveRecord::Migration
       t.string :content
       t.integer :user_id
       t.string :user
-      
+
       
       t.timestamps null: false
     end

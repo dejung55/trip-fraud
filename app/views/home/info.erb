@@ -89,7 +89,7 @@
                                 <td><a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
                                 <td> <%= r.user.email%> </td>
                                 <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
-                                <td></td>
+                                <td><%= @writing_number %></td>
                                 <td><%= r.replies.count %></td>
                             </tr>
                             <% end %>
