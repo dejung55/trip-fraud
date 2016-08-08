@@ -39,9 +39,10 @@
                     <form action ="/home/twitter_write" method="POST">
                           <div class="form-group" >
                             <label for="exampleInputEmail1"></label>
+                            <input type="hidden" value="<%= Faker::Name.first_name %>" name="twitter_name">
                             <input type="text" class="form-control" name="twitter_title" placeholder="제목을 입력하세요">
-                          
                             <label for="exampleInputPassword1"></label>
+                          
                             <textarea type="text"class="form-control" name="twitter_content" placeholder="내용을 입력하세요" rows="3"></textarea>
                           </div>
                       <button type="submit" class="btn btn-default" > 작성 </button>
@@ -51,22 +52,43 @@
             <div class="well" style = " padding-top: 0px;padding-bottom: 10px; background:white">
                     <% @every_twitter.each do |p| %>
                    
-                    <h5><%= p.twitter_title %></h5>
-                    <hr>
-                    <%= p.twitter_content %>
+                    <h5><%= p.twitter_title %> \\\\\\  <%= p.twitter_name %>  </h5>
                     <br>
-                        <% p. twitter_comment.each do |r| %>
-                        <%= r.twitter_comment %>
-                        <% end %>
+                    
+                    <hr>
+                        <%= p.twitter_content %>
+                    <br>
+                    
+                        <form action="/home/twitter_destroy/<%= p.id %>" method="post">
+                            <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
+                        </form>
+                        <form action="/home/twitter_updateview/<%= p.id %>" method="post">
+                            <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
+                        </form>
+                    
+                    <br>
+                    
+                                    <% p. twitter_comment.each do |r| %>
+                                        <%= r.twitter_comment %> \ <%= r.name %>
+                                        <form action="/home/comment_destroy/<%= r.id %>" method="post">
+                                            <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
+                                         </form>
+                                         <form action="/home/comment_updateview/<%= r.id %>" method="post">
+                                            <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
+                                         </form>
+                                    <% end %>
+                                    
                         <form action="/home/twitter_comment" method="POST">
                             <p>댓글</p>
-                            <textarea id="twitter_<%= p.id %>"name="twitter_comment"rows="1"> </textarea>
-                            <button value="<%= p.id %>" type="submit" class="btn btn-default">Submit</button>
+                            <input type="hidden" value="<%= p.id%>" name="twitter_id">
+                            <input type="hidden" value="<%= Faker::Name.last_name %>" name="name">
+                            <textarea name="twitter_comment"rows="1"> </textarea>
+                            <button type="submit" class="btn btn-default">Submit</button>
                         </form>
-                        <% end %>
+                    <% end %>
             </div>      
         </div>
-        <div class="col-sm-3"></div>
+       
     </div>
     
     <div id="footer">

@@ -1,0 +1,2 @@
+module AfricaHelper
+end

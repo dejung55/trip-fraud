@@ -3,19 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="css/jquery-ui-1.10.1.custom.css" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="css/grid.css" type="text/css" media="screen"/>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
-    <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'/>
-    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://malsup.github.io/jquery.cycle2.js"></script>
-    
-    <link href="css/style_details.css" rel="stylesheet" type="text/css" />
-
 </head>
     <body>
         <div class="menu-top">	
@@ -23,6 +12,17 @@
             <div id="logo" class="fleft">
                 <a class="navbar-brand" href="/">Travel Compass</a>
             </div>
+            
+            
+            <div id="nav" class="fright">
+                 <form action="/home/search" method="GET" class="search">
+                    <div class="field">
+                      <input type="text" class="input-search" id="input-search" name="search" required>
+                      <label for="input-search">검색하기</label>
+                    </div> <!-- /field -->
+                  </form>
+            </div>
+            
             <div id="nav" class="fright">
                 <ul class="nav nav-pills pull-right">
                     <li><a href ="/home/twitter"> 커뮤니티 </a></li>
@@ -45,16 +45,14 @@
                  <div class="cycle-slideshow featured-image" data-cycle-fx="scrollHorz" data-cycle-timeout="2000">
                     <div class="cycle-pager"></div>
                     <div class="cycle-caption"></div>
-
-                    <img src="http://placehold.it/527x395" alt=""/>
-                    <img src="http://placehold.it/527x395" alt=""/>
-                    <img src="http://placehold.it/527x395" alt=""/>
-                    
+                    <% @every_post1.asia1s.each do |r|%>
+                        <img src="<%= r.asiaimg %>" width="535" height="375" alt=""/>
+                    <% end %>
                  </div>
                 </div>
                 <div class="col-md-6" style="margin-right: 0;">
                     <ul class="tour-meta">
-                        <li><i class="icon-map-marker"></i><strong>Destination:</strong> Thailand</li>				
+                        <li><i class="icon-map-marker"></i><strong>긴급연락</strong> Thailand</li>				
                         <li><i class="icon-time"></i><span></span><strong>Duration:</strong> 7 days</li>		
                         <li><i class="icon-money"></i><span></span><strong>Price:</strong> $589</li>		
                     </ul>
@@ -67,8 +65,10 @@
                 </div>
             </div>  
             
-            <form action=""> 
-            <div class="grid_12 str_description">
+            <form>
+
+       <div class ="container">
+            <div class="well" style = "margin-top:450px;padding-bottom: 10px; background:white">
                 <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
                 <h4>여행사기게시판</h4>
                     <table class="table table-hover">
@@ -96,15 +96,127 @@
                         </tbody>
                     </table>
                       <button type="submit" class="btn btn-default"><a href = "/home/write"> 작성 </a></button>
-            </div>
-        </div>
-        
-     <div id="footer">
-        <div class="container clearfix">
-            <div class="copyright">Travel the World &copy; 2020 | <a href="javascript:void(0);">Privacy Policy</a></div>
-            
+
+                    <h2 style="text-align:left">여행사기게시판</h2>
+                        <table class="table table-hover">
+                             <thead>                
+                                 <tr>
+                                    <th>번호</th>
+                                    <th>글제목</th>
+                                    <th>작성자</th>
+                                    <th>작성일</th>
+                                    <th>조회수</th>
+                                    <th>댓글수</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                  <% @every_post1.writings.each do |r| %>
+                                <tr>
+                                  <td><%= r.id %></td>
+                                  <td><a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
+                                  <td> <%= r.user.email%> </td>
+                                  <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
+                                  <td><%= r.number %></td>
+                                  <td><%= r.replies.count %></td>
+                                </tr>
+                                 <% end %>
+                            </tbody>
+                      </table>
+                          <input type="hidden" value="<%= @every_post1.id%>" name="id_of_post">
+                          <button type="submit" class="btn btn-default"><a href = "/home/write/<%= @every_post1.id %>"> 작성 </a></button>
+              </div>
+             
+                  <div class="row marketing">
+                 <div class="row">
+                    <% @every_post1.writings.each do |r| %>
+                     <div class="col-md-4">
+                        <h4><%= r.content %></h4>
+                        <p><%= r.title %></p>
+                          <span class="star-rating small">
+                          <% 1.upto(5) do |i| %>
+                            <% if i == r.avg.round(0) %>
+                              <i class="on"></i>
+                            <%else%>
+                              <i></i>
+                            <%end%>
+                          <% end %>
+                        </span>
+                          <p><%= r.avg.round(2) %> (<%= r.replies.count %>명)</p>
+                        <p><a class="btn btn-sm btn-default" href="/home/read/<%= r.id %>" role="button">자세히 보기</a></p>
+                     </div>
+                   <% end %>
+                 </div>
+              </div>
         </div>
     </div>
+          
+          
+<div class="slidePoint" id="slide2" data-slide="2" data-stellar-background-ratio="0.5">
+    
+	<div class="effect_2 padding_slide2">
+		<div class="container clearfix">
+			
+		<div class="grid_12">
+			<h1>다른나라도 찾아보세요</h1>
+			<h2>Cras urna leo, fringilla nec aliquam ac, varius in enim. Maecenas non felis</h2>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div class="slidePoint" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
+	<div class="container clearfix">
+		<img class="icon_img" src="/assets/icon2.jpg" alt=""/>
+		<h2 style ="text-align:left">인기여행지</h2>
+		<br>
+	
+        <div class="container text-center">
+          
+          <div class="row">
+            
+            <a href="/america/info/0" class="link-reset">     
+                <div class="col-sm-6">
+                  <img src="/assets/manhattan.jpg" class="img-responsive" style="width:100%" alt="Image">
+                </div>
+            </a>
+            
+            <a href="/europe/info/0" class="link-reset">   
+            <div class="col-sm-6">
+              <img src="/assets/louvre.jpg" class="img-responsive" style="width:100%" alt="Image">
+            </div>
+            
+          </div>
+          <hr>
+        </div>
+
+        <div class="container text-center">
+          
+          <div class="row">
+            <a href="/home/info/0" class="link-reset">  
+                <div class="col-sm-4">
+                  <img src="/assets/fuji.jpg" class="img-responsive" style="height:100%;width:100%;" alt="Image">
+                </div>
+            </a>
+            <a href="/home/info/4" class="link-reset">
+                <div class="col-sm-4">
+                  <img src="/assets/taji.jpg" class="img-responsive" style="height:100%;width:100%;" alt="Image">
+                </div>
+            </a>
+            <a href="/home/info/7" class="link-reset">
+                <div class="col-sm-4">
+                  <img src="/assets/thai.jpg" class="img-responsive" style="height:100%;width:100%;" alt="Image">
+                </div>
+            </a>
+          </div>
+        </div><br>
+</div>
+        
+         <div id="footer">
+            <div class="container clearfix">
+                <div class="copyright">Travel the World &copy; 2020 | <a href="javascript:void(0);">Privacy Policy</a></div>
+                
+            </div>
+        </div>
  </form>
 </html>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729071322) do
+ActiveRecord::Schema.define(version: 20160803164652) do
 
   create_table "africas", force: :cascade do |t|
     t.string   "img"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20160729071322) do
   create_table "americas", force: :cascade do |t|
     t.string   "img2"
     t.string   "title2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "asia1s", force: :cascade do |t|
+    t.string   "asiaimg"
+    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160729071322) do
 
   create_table "replies", force: :cascade do |t|
     t.string   "content"
+    t.integer  "score"
     t.string   "writing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160729071322) do
   create_table "twitter_comments", force: :cascade do |t|
     t.string   "twitter_id"
     t.string   "twitter_comment"
+    t.string   "name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -58,6 +67,7 @@ ActiveRecord::Schema.define(version: 20160729071322) do
   create_table "twitters", force: :cascade do |t|
     t.string   "twitter_title"
     t.string   "twitter_content"
+    t.string   "twitter_name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -85,8 +95,13 @@ ActiveRecord::Schema.define(version: 20160729071322) do
     t.string   "content"
     t.integer  "user_id"
     t.string   "user"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "post_id"
+    t.string   "america_id"
+    t.string   "europe_id"
+    t.string   "africa_id"
+    t.integer  "number",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
