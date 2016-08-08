@@ -13,6 +13,14 @@ class HomeController < ApplicationController
 
     @every_post1  = Post.find(params[:id].to_i)
     
+    
+  end
+  
+  def search
+    
+  @search = Post.where('title3 = ?', params[:search]).take.id
+  render "/home/search"
+  
   end
   
   def write
