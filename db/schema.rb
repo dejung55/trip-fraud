@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20160803164652) do
     t.string   "twitter_title"
     t.string   "twitter_content"
     t.string   "twitter_name"
+    t.integer  "user_id"
+    t.string   "user"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

@@ -127,6 +127,7 @@ class HomeController < ApplicationController
     new_twitter.twitter_title = params[:twitter_title]
     new_twitter.twitter_content = params[:twitter_content]
     new_twitter.twitter_name = params[:twitter_name]
+    new_twitter.user = current_user
     new_twitter.save
     
     redirect_to "/home/twitter"
