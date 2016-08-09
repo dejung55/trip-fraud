@@ -98,6 +98,7 @@ class HomeController < ApplicationController
     reply.content = params[:content]
     reply.writing_id = params[:id_of_post]
     reply.score = params[:rating]
+    reply.user = current_user
     reply.save
     
     redirect_to :back

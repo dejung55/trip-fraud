@@ -4,6 +4,8 @@ class CreateReplies < ActiveRecord::Migration
       t.string :content
       t.integer :score
       t.string :writing_id
+      t.integer :user_id
+      t.string :user
 
       t.timestamps null: false
     end
