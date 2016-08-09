@@ -47,6 +47,37 @@
             </div>
         </div>
         
+
+        
+        
+        <div id="info-pages" class="container clearfix " style="margin-top: 120px;">
+            <div class="grid_12 row" style="margin-bottom: 1000">
+                <div class="col-md-6"> 
+                 <div class="cycle-slideshow featured-image" data-cycle-fx="scrollHorz" data-cycle-timeout="2000">
+                    <div class="cycle-pager"></div>
+                    <div class="cycle-caption"></div>
+                    <% @every_post1.asia1s.each do |r|%>
+                        <img src="<%= r.asiaimg %>" width="535" height="375" alt=""/>
+                    <% end %>
+                 </div>
+                </div>
+                <div class="col-md-6" style="margin-right: 0;">
+                    <ul class="tour-meta">
+                        <li><i class="icon-map-marker"></i><strong>긴급연락</strong> Thailand</li>				
+                        <li><i class="icon-time"></i><span></span><strong>Duration:</strong> 7 days</li>		
+                        <li><i class="icon-money"></i><span></span><strong>Price:</strong> $589</li>		
+                    </ul>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas vehicula porttitor condimentum. Curabitur id lobortis lectus. Praesent tincidunt blandit feugiat. Donec sollicitudin vulputate orci eget commodo justo pulvinar rumus.</p>
+                    <p>Nullam tempor, magna ac tempus rutrum, quam metus pharetra enim, at luctus tortor sapien eget eros. Morbi mattis, arcu nec semper aliquet, tortor augue eleifend tellus, at consequat magna sapien id metus. Nulla commodo vulputate feugiat. 
+                        Nam vel ante massa, eget semper enim. Mauris fermentum ipsum eu lacus fringilla dignissim. Curabitur eget ante tellus.  
+                       </p>
+                        <input type="submit" class="contact_btn send_btn" value="Book Now" />
+                        <input type="reset" class="contact_btn" value="Ask a Question" />
+                </div>
+            </div>  
+            
+            <form>
+        </div>
 <div class="slidePoint" id="slide6" data-slide="6" data-stellar-background-ratio="0.5">
 	<div class="padding_slide5">
 		<div class="bord_top"></div>
@@ -169,37 +200,6 @@
 		
 	</div>
 </div>
-
-        
-        
-        <div id="info-pages" class="container clearfix " style="margin-top: 120px;">
-            <div class="grid_12 row" style="margin-bottom: 1000">
-                <div class="col-md-6"> 
-                 <div class="cycle-slideshow featured-image" data-cycle-fx="scrollHorz" data-cycle-timeout="2000">
-                    <div class="cycle-pager"></div>
-                    <div class="cycle-caption"></div>
-                    <% @every_post1.asia1s.each do |r|%>
-                        <img src="<%= r.asiaimg %>" width="535" height="375" alt=""/>
-                    <% end %>
-                 </div>
-                </div>
-                <div class="col-md-6" style="margin-right: 0;">
-                    <ul class="tour-meta">
-                        <li><i class="icon-map-marker"></i><strong>긴급연락</strong> Thailand</li>				
-                        <li><i class="icon-time"></i><span></span><strong>Duration:</strong> 7 days</li>		
-                        <li><i class="icon-money"></i><span></span><strong>Price:</strong> $589</li>		
-                    </ul>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas vehicula porttitor condimentum. Curabitur id lobortis lectus. Praesent tincidunt blandit feugiat. Donec sollicitudin vulputate orci eget commodo justo pulvinar rumus.</p>
-                    <p>Nullam tempor, magna ac tempus rutrum, quam metus pharetra enim, at luctus tortor sapien eget eros. Morbi mattis, arcu nec semper aliquet, tortor augue eleifend tellus, at consequat magna sapien id metus. Nulla commodo vulputate feugiat. 
-                        Nam vel ante massa, eget semper enim. Mauris fermentum ipsum eu lacus fringilla dignissim. Curabitur eget ante tellus.  
-                       </p>
-                        <input type="submit" class="contact_btn send_btn" value="Book Now" />
-                        <input type="reset" class="contact_btn" value="Ask a Question" />
-                </div>
-            </div>  
-            
-            <form>
-        </div>
 
        <div class ="container">
             <div class="well" style = "margin-top:450px;padding-bottom: 10px; background:white">
