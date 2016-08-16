@@ -212,4 +212,18 @@ class HomeController < ApplicationController
     @reply_post = Reply.find(params[:id])
   end
   
+  
+  def post_like
+    Writing.find(params[:id]).users << current_user
+        redirect_to :back
+
+  end
+  
+  def post_unlike
+    one_post = Writing.find(params[:id])
+    current_user.post_likes.all.delete(one_post)
+        redirect_to :back
+
+  end
+  
 end
