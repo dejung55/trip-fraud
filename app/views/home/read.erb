@@ -17,13 +17,15 @@
         <% end %>
         
         <% if user_signed_in? && @every_post.user == current_user %>
-                <form action="/home/destroy/<%= @every_post.id %>" method="post">
+                <br><form action="/home/destroy/<%= @every_post.id %>" method="post">
                     <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
-                </form>
+                
                 <form action="/home/update_view/<%= @every_post.id %>" method="post">
                     <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
-                </form>
+                </form></form></br>
+                
         <% end %>
+        
         </div>  
         <div class="col-md-4" style="height:500px; width:300px; margin-top:150px; padding-top:50px; padding-bottom:30px; padding-left:20px; padding-right:20px; background-color:#DDDDDD">
          
@@ -43,10 +45,10 @@
                         <% if user_signed_in? && r.user == current_user %>
                           <form action="/home/reply_destroy/<%= r.id %>" method="post">
                                 <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
-                          </form>
                           <form action="/home/reply_updateview/<%= r.id %>" method="post">
                                 <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
-                          </form>
+                          </form></form>
+
                         <% end %>
                 <% end %>
                 
