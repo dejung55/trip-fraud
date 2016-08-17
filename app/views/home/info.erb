@@ -145,16 +145,7 @@
                      <div class="col-md-4">
                         <h4><%= r.content %></h4>
                         <p><%= r.title %></p>
-                          <span class="star-rating small">
-                          <% 1.upto(5) do |i| %>
-                            <% if i == r.avg.round(0) %>
-                              <i class="on"></i>
-                            <%else%>
-                              <i></i>
-                            <%end%>
-                          <% end %>
-                        </span>
-                          <p><%= r.avg.round(2) %> (<%= r.replies.count %>명)</p>
+                          
                         <p><a class="btn btn-sm btn-default" href="/home/read/<%= r.id %>" role="button">자세히 보기</a></p>
                      </div>
                    <% end %>
