@@ -101,7 +101,7 @@
                               </form>
                             <% end %><hr>
                     <% end %>
-                <form style="margin-top:4px;" action="/home/reply_write" method="POST">
+                <form action= "/home/reply_write" style="margin-top:4px;" method='POST'>
                     <input type="hidden" value="<%= @every_post.id%>" name="id_of_post">
                     <textarea name="content" class="form-control" rows="1" id="commit" placeholder="댓글을 남겨주세요"></textarea>
                     <button type="submit" class="btn btn-default" style="margin-top:30px">전송</button>
@@ -120,8 +120,6 @@
         </div>
  </form>
 </html>
-
-
 
 
 

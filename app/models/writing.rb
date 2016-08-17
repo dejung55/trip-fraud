@@ -10,16 +10,5 @@ class Writing < ActiveRecord::Base
   has_many :post_likes 
   has_many :users, through: :post_likes
  
-     def avg
-         sum = 0
-         replies.each do |c|
-            sum += c.score 
-         end
-         
-         if replies.count == 0
-             0
-         else
-         sum.to_f / replies.count
-         end
-     end
+    
 end

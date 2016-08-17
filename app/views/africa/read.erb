@@ -27,7 +27,7 @@
                     <%= r.content %><hr>
                 <% end %>
                 
-                <form style="margin-top:4px;" action="/africa/reply_write" method="POST">
+                <form style="margin-top:4px;">
                     <input type="hidden" value="<%= @every_post.id%>" name="id_of_post">
                     <textarea name="content" class="form-control" rows="2" id="commit"></textarea>
                     <button type="submit" class="btn btn-default" style="margin-top:30px">전송</button>
@@ -35,3 +35,14 @@
         </div>
     </div>  
 </div>
+
+ <script>
+ $.ajax({
+  method: "POST",
+  url: "/africa/reply_write",
+  data: { name: "John", location: "Boston" }
+})
+  .done(function( msg ) {
+    alert( "댓글이 작성되었습니다." );
+  });
+  </script>
