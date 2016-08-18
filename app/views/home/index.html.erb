@@ -14,12 +14,12 @@
           <img src="/assets/title_img.png" style="width: 100px;margin-top:150px;margin-bottom:0px;margin-left: 200px;margin-right: 10px;"/></br>
           <img src="/assets/title_text.png" style="width: 450px; margin-top:30px;margin-bottom:80px; margin-left: 10px; margin-right: 10px;"/>
 	      <div class="grid_12" style="margin-top: 10px; margin-bottom: 500px;">
-	          <ul id="city_folio" align="center">
-	              <img src="/assets/asia.png"       style="width: 160px; height: 160px;  margin-left: 50px; margin-right: 50px;" id="asia_folio"/>
-                  <img src="/assets/america.png"    style="width: 160px; height: 160px;  margin-left: 50px; margin-right: 50px;" id="america_folio"/>
-	              <img src="/assets/europe.png"     style="width: 160px; height: 160px;  margin-left: 50px; margin-right: 50px;" id="europe_folio" />
-	              <img src="/assets/africa.png"     style="width: 160px; height: 160px;  margin-left: 50px; margin-right: 50px;" id="africa_folio"/>
-	          </ul>
+	          <div class ="row"  style="height:160px; "id="city_folio" align="center">
+	              <div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"> <img src="/assets/asia.png"    style="width: 160px; height: 160px; "id="asia_folio"/></div>
+                  <div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"> <img src="/assets/america.png" style="width: 160px; height: 160px; " id="america_folio"/></div>
+	              <div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"> <img src="/assets/europe.png"  style="width: 160px; height: 160px;"  id="europe_folio" /></div>
+	              <div class ="col-xs-3 col-sm-3 col-md-3 col-lg-3"> <img src="/assets/africa.png"  style="width: 160px; height: 160px;"  id="africa_folio"/></div>
+	          </div>
 	          
 	          
               <!--ASIA-->
@@ -30,9 +30,9 @@
     	               <img class="imgTop" alt="Ipsum" align="left" src="<%= r.img3%>" />
     	           </div>
                    <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px; ">
-	                   <p align="center"><a role="button"><%= r.title3%></a></p>
-	                   <button type="submit" class="btn btn-default" >전송</button>
-	                   
+	                   <p align="center"><a role="button"><%= r.title3%></p></a>
+	                   <br><input  TYPE="IMAGE" src="/assets/map_pin.png" value="Submit"  align="absmiddle"></br>
+
 	               </div>
     	         </div>
     	      </form>
@@ -48,7 +48,7 @@
 	              </div>
 	              <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px;">
 	                  <p align="center"><a role="button"><%= r.title2 %></a></p>
-	                  <button type="submit" class="btn btn-default" >전송</button>
+	                   <br><input  TYPE="IMAGE" src="/assets/map_pin.png" value="Submit"  align="absmiddle"></br>
 	                  
 	             </div>
 	          </div>
@@ -64,7 +64,7 @@
 	              </div>
 	              <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px;">
 	                  <p align="center"><a role="button"><%= r.title1 %></a></p>
-	                  <button type="submit" class="btn btn-default" >전송</button>
+	                   <br><input  TYPE="IMAGE" src="/assets/map_pin.png" value="Submit"  align="absmiddle"></br>
                   </div>
 	          </div>
 	          </form>
@@ -78,8 +78,8 @@
                     <img class="imgTop" alt="Ipsum" src="<%= r.img %>"/>
                  </div>
                  <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px;">
-                     <p align="center"><a role="button"><%= r.title %></a></p>
-                     <button type="submit" class="btn btn-default" >전송</button>
+                     <p align="center"><a role="button" ><%= r.title %></a></p>
+	                   <br><input  TYPE="IMAGE" src="/assets/map_pin.png" value="Submit"  align="absmiddle"></br>
                  </div>
 	          </div>
 	          </form>

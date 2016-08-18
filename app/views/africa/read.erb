@@ -14,11 +14,11 @@
                 <hr>
 
                 <form action="/africa/destroy/<%= @every_post.id %>" method="post">
-                    <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
-                </form>
+                    <button type="submit" class="btn btn-default delete" style="margintop:20px" align="right">삭제</button>
+                
                 <form action="/africa/update_view/<%= @every_post.id %>" method="post">
                     <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
-                </form>
+                </form></form>
         </div>
         
         <div class="col-md-4" style="height:500px; width:300px; margin-top:150px; padding-top:50px; padding-bottom:30px; padding-left:20px; padding-right:20px; background-color:#DDDDDD">
@@ -27,7 +27,7 @@
                     <%= r.content %><hr>
                 <% end %>
                 
-                <form style="margin-top:4px;" action="/africa/reply_write" method="POST">
+                <form action="/africa/reply_write" style="margin-top:4px;" method= "POST">
                     <input type="hidden" value="<%= @every_post.id%>" name="id_of_post">
                     <textarea name="content" class="form-control" rows="2" id="commit"></textarea>
                     <button type="submit" class="btn btn-default" style="margin-top:30px">전송</button>

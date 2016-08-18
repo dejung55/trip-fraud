@@ -57,7 +57,7 @@ class AmericaController < ApplicationController
     @one_post = Writing.find(params[:id])
     @one_post.destroy
     
-    redirect_to "/"
+    redirect_to "/america/read"
     
   end
   

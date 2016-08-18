@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816042901) do
+ActiveRecord::Schema.define(version: 20160813075223) do
 
   create_table "africas", force: :cascade do |t|
     t.string   "img"
@@ -41,15 +41,11 @@ ActiveRecord::Schema.define(version: 20160816042901) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string   "alt",               default: ""
-    t.string   "hint",              default: ""
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "post_likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "writing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|

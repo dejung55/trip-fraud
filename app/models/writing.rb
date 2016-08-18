@@ -6,16 +6,9 @@ class Writing < ActiveRecord::Base
     belongs_to :europes
     belongs_to :africa
  
-     def avg
-         sum = 0
-         replies.each do |c|
-            sum += c.score 
-         end
-         
-         if replies.count == 0
-             0
-         else
-         sum.to_f / replies.count
-         end
-     end
+ # post 좋아요 N(user):M(포스트)
+  has_many :post_likes 
+  has_many :users, through: :post_likes
+ 
+    
 end

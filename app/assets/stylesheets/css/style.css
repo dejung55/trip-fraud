@@ -1,4 +1,4 @@
-﻿
+
 /* ===================================*/
 /* TABLE OF CONTENTS: */
 /* ===================================*/
@@ -23,6 +23,7 @@
 /* 14 - Footer*/
 
 /* Global */
+
 
 body {
 	font-family: 'Open sans',sans-serif;
@@ -832,7 +833,7 @@ p.hot_date {
     cursor: pointer;
 }
 #city_folio .active {
-    background-color: #1BBC9B;
+
     cursor: pointer;
 }
 .europe{ display: none;}
