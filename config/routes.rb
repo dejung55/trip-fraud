@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+
   get ":controller(/:action(/:id))"
   post ":controller(/:action(/:id))"
-  
+
   # The priority is based upon order of creation: first cre
   
   # See how all your routes lay out with "rake routes".

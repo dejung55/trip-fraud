@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803164652) do
+ActiveRecord::Schema.define(version: 20160816042901) do
 
   create_table "africas", force: :cascade do |t|
     t.string   "img"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20160803164652) do
     t.string   "img1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "alt",               default: ""
+    t.string   "hint",              default: ""
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -97,6 +108,7 @@ ActiveRecord::Schema.define(version: 20160803164652) do
   create_table "writings", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
+    t.string   "image_url",  default: ""
     t.integer  "user_id"
     t.string   "user"
     t.string   "post_id"
@@ -104,8 +116,8 @@ ActiveRecord::Schema.define(version: 20160803164652) do
     t.string   "europe_id"
     t.string   "africa_id"
     t.integer  "number",     default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

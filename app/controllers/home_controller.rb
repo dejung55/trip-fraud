@@ -46,7 +46,12 @@ class HomeController < ApplicationController
     new_post.title = params[:title]
     new_post.content = params[:content]
     new_post.post_id = params[:id_of_post]
+    file = params[:pic]
+    uploader = TravelUploader.new
+    uploader.store!(file)
     new_post.user = current_user
+    
+    new_post.image_url = uploader.url
     new_post.save
     
     redirect_to "/home/info/#{new_post.post_id}"
@@ -59,7 +64,7 @@ class HomeController < ApplicationController
     @every_post.number = @every_post.number + 1
     @every_post.save 
     
-  @every_post= Writing.find(params[:id]) 
+  
 
   end
   
@@ -211,5 +216,16 @@ class HomeController < ApplicationController
   def reply_updateview
     @reply_post = Reply.find(params[:id])
   end
+  
+  def upload
+    file = params[:pic]
+    uploader = TravelUploader.new
+    uploader.store!(file)
+  
+    redirect_to "/home/info"
+    
+  end
+  
+  
   
 end

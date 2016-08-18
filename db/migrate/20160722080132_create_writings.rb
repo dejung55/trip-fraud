@@ -3,6 +3,7 @@ class CreateWritings < ActiveRecord::Migration
     create_table :writings do |t|
       t.string :title
       t.string :content
+      t.string :image_url, default: ""
       
       t.integer :user_id
       t.string :user

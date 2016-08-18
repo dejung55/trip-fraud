@@ -5,8 +5,12 @@
     <title></title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://malsup.github.io/jquery.cycle2.js"></script>
+    <script type="text/javascript" src="/assets/tinymce.js"></script>
+  
 </head>
     <body>
+        
+<%= tinymce_assets %>  
         <div class="menu-top">	
         <div class="container clearfix">
             <div id="logo" class="fleft">
@@ -64,79 +68,37 @@
                         <input type="reset" class="contact_btn" value="Ask a Question" />
                 </div>
             </div>  
-            
+        
             <form>
 
        <div class ="container">
             <div class="well" style = "margin-top:450px;padding-bottom: 10px; background:white">
                 <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
                 <h4>여행사기게시판</h4>
-                       <table class="table table-hover">
-                             <thead>                
-                                 <tr>
-                                    <th>번호</th>
-                                    <th>글제목</th>
-                                    <th>작성자</th>
-                                    <th>작성일</th>
-                                    <th>조회수</th>
-                                    <th>댓글수</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                  <% @every_post1.writings.each do |r| %>
-                                <tr>
-                                  <td><%= r.id %></td>
-                                  <td><a href=/home/read/<%= r.id %>> <%= r.title %></a></td>
-                                  <td> <%= r.user.email%> </td>
-                                  <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
-                                  <td><%= r.number %></td>
-                                  <td><%= r.replies.count %></td>
-                                </tr>
-                                 <% end %>
-                            </tbody>
-                      </table>
-                          <input type="hidden" value="<%= @every_post1.id%>" name="id_of_post">
-                          <button type="submit" class="btn btn-default"><a href = "/home/write/<%= @every_post1.id %>"> 작성 </a></button>
-              </div>
-             
-                  <div class="row marketing">
+                        <div class="row marketing">
                  <div class="row">
                     <% @every_post1.writings.each do |r| %>
                      <div class="col-md-4">
-                        <h4><%= r.content %></h4>
+                        <h4><%= r.content.html_safe %></h4>
                         <p><%= r.title %></p>
-                          <span class="star-rating small">
-                          <% 1.upto(5) do |i| %>
-                            <% if i == r.avg.round(0) %>
-                              <i class="on"></i>
-                            <%else%>
-                              <i></i>
-                            <%end%>
-                          <% end %>
-                        </span>
-                          <p><%= r.avg.round(2) %> (<%= r.replies.count %>명)</p>
+                        <% unless r.image_url.empty? %>  
+                            <img src="<%= r.image_url %>">
+                        <% end %>
+                        
+                          
                         <p><a class="btn btn-sm btn-default" href="/home/read/<%= r.id %>" role="button">자세히 보기</a></p>
                      </div>
                    <% end %>
                  </div>
               </div>
+                          <input type="hidden" value="<%= @every_post1.id%>" name="id_of_post">
+                          <button type="submit" class="btn btn-default"><a href = "/home/write/<%= @every_post1.id %>"> 작성 </a></button>
+              </div>
+             
+               
         </div>
     </div>
-          
-          
-<div class="slidePoint" id="slide2" data-slide="2" data-stellar-background-ratio="0.5">
-    
-	<div class="effect_2 padding_slide2">
-		<div class="container clearfix">
-			
-		<div class="grid_12">
-			<h1>다른나라도 찾아보세요</h1>
-			<h2>Cras urna leo, fringilla nec aliquam ac, varius in enim. Maecenas non felis</h2>
-		</div>
-		</div>
-	</div>
-</div>
-
+ 
 <div class="slidePoint" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
 	<div class="container clearfix">
 		<img class="icon_img" src="/assets/icon2.jpg" alt=""/>
@@ -193,3 +155,4 @@
  </form>
 </html>
 
+<%= tinymce %>

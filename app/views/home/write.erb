@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
-  <script>
-  tinymce.init({
-    selector: '#mytextarea'
-  });
-  </script>
+
+ <script type="text/javascript" src="/assets/tinymce.js"></script>
+	<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script>
+ 
+</script>
 </head>
 
 <body>
 
-  
+
 
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -39,7 +39,7 @@
     
 
 
-    <form action="/home/pass" method="POST">
+    <form action="/home/pass" method="POST"  enctype="multipart/form-data">
         <div class = "container" style=" margin-top: 100px;">
           <div class="form-group">
             <label for="exampleInputEmail1"> - 제목 - </label>
@@ -48,9 +48,17 @@
             <br>
             <label for="exampleInputEmail1"> - 내용 - </label>
             <input type="text" value="<%= @one_post.id%>" name="id_of_post">
-            <textarea id="mytextarea"class="form-control" rows="15" placeholder="내용을 입력해주세요" name="content"></textarea>
+            <textarea class="tinymce" rows="15" placeholder="내용을 입력해주세요" name="content"></textarea>
+             <input type="file" name="pic" accept="image/*">
+          
+             
+         
           <br>
             <button type="submit" class="btn btn-default"> 작성 </button>
+    </form>
+    <form action="/home/upload" method ="post">
+   
+      <input type="submit">
     </form>
           <br>
           <br>
@@ -61,3 +69,4 @@
 </div>
 </body>
 </html>
+<%= tinymce plugins: ["uploadimage"] %>

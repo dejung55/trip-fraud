@@ -7,7 +7,7 @@
                 <p style="font-weight:bold"><%= @every_post.title %></p>
                 <hr>
                 <div style="height:300px;">
-                    <%= @every_post.content %>
+                    <%= @every_post.content.html_safe %>
                 </div>
                 <hr>
                 
