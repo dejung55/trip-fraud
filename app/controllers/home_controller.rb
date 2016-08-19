@@ -10,9 +10,7 @@ class HomeController < ApplicationController
   end
   
   def info
-
     @every_post1  = Post.find(params[:id].to_i)
-    
     
   end
   

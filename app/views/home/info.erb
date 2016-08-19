@@ -49,13 +49,11 @@
             </div>
         </div>
         
-
-        
-        
-        <div id="info-pages" class="container clearfix " style="margin-top: 120px;">
-            <div class="grid_12 row" style="margin-bottom: 1000">
-           <!--slide-->
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+        <div id="info-pages" class="container clearfix " style="margin-top: 120px;" align="center">
+            <div class="grid_12 row" style="margin-bottom: 1000" >
+<!--slide-->
+                <div id="myCarousel" style = "width: 500px;" class="carousel slide" data-ride="carousel">
                   <!-- Indicators -->
                   <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -65,24 +63,29 @@
                   </ol>
                 
                   <!-- Wrapper for slides -->
+        <% @every_post1.asia1s.each do |r|%>
                   <div class="carousel-inner" role="listbox" align="center">
                     <div class="item active">
-                      <img src="http://cfs.tistory.com/custom/blog/183/1835674/skin/images/10.jpg" alt="Chania">
+                      <img src="<%= r.asiaimg %>" style = "width: 500px;" alt="Chania">
                     </div>
                 
                     <div class="item">
-                      <img src="http://cfs.tistory.com/custom/blog/183/1835674/skin/images/7.jpg" alt="Chania">
+                      <img src="http://cfs.tistory.com/custom/blog/183/1835674/skin/images/7.jpg" style = "width: 500px;" alt="Chania">
                     </div>
                 
                     <div class="item">
-                      <img src="http://cfs.tistory.com/custom/blog/183/1835674/skin/images/8.jpg" alt="Flower">
+                      <img src="http://cfs.tistory.com/custom/blog/183/1835674/skin/images/8.jpg" style = "width: 500px;" alt="Flower">
                     </div>
                 
                     <div class="item">
-                      <img src="http://cfs.tistory.com/custom/blog/183/1835674/skin/images/9.jpg" alt="Flower">
+                      <img src="http://cfs.tistory.com/custom/blog/183/1835674/skin/images/9.jpg" style = "width: 500px;" alt="Flower">
                     </div>
                   </div>
-                    
+         <% end %>
+
+        
+        
+                   
                       <!-- Left and right controls -->
                       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -93,7 +96,8 @@
                         <span class="sr-only">Next</span>
                       </a>
                     </div>
-               <!--slide end -->
+                    
+<!--slide end -->
            
 <!--            <div class="col-md-6"> 
                  <div class="cycle-slideshow featured-image" data-cycle-fx="scrollHorz" data-cycle-timeout="2000">
@@ -126,6 +130,8 @@
                 </div> -->
         </div>
 
+<hr>
+
        <div class ="container">
             <div class="well" style = "margin-top:450px;padding-bottom: 10px; background:white">
                 <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
@@ -137,10 +143,7 @@
                         <h4><%= r.content.html_safe %></h4>
                         <p><%= r.title %></p>
 
-                        <% unless r.image_url.empty? %>  
-                            <img src="<%= r.image_url %>">
-                        <% end %>
-                        
+
 
                           
                         <p><a class="btn btn-sm btn-default" href="/home/read/<%= r.id %>" role="button">자세히 보기</a></p>

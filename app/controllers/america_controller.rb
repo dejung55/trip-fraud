@@ -2,7 +2,7 @@ class AmericaController < ApplicationController
   
   def info
     
-    @every_post1 = America.find(params[:id].to_i)
+    @every_post1  = America.find(params[:id].to_i)  
     
   end
   

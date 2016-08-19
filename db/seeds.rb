@@ -44,15 +44,24 @@ Europe.create( id: "12", title1:"네덜란드", img1: "https://upload.wikimedia.
 Africa.create( id: "0", title:"이집트", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/225px-Flag_of_Egypt.svg.png")
 Africa.create( id: "1", title:"남아공", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/225px-Flag_of_South_Africa.svg.png")
 
+
+#위험경보 이미지
+
 Asia1.create( asiaimg: "/assets/map/asia/japan.png", post_id: 0)
 Asia1.create( asiaimg: "/assets/map/asia/china.png", post_id: 1)
-Asia1.create( asiaimg: "/assets/map/asia/philippines.png", post_id: 2)
+Asia1.create( asiaimg: "/assets/map/asia/Philippines.png", post_id: 2)
 Asia1.create( asiaimg: "/assets/map/asia/vietnam.png", post_id: 3)
 Asia1.create( asiaimg: "/assets/map/asia/India.png", post_id: 4)
-Asia1.create( asiaimg: "/assets/map/asia/japan.png", post_id: 5)
+#대만 Asia1.create( asiaimg: "", post_id: 5)
 Asia1.create( asiaimg: "/assets/map/asia/hongkong.png", post_id: 6)
-Asia1.create( asiaimg: "/assets/map/asia/singapore.png", post_id: 7)
+Asia1.create( asiaimg: "/assets/map/asia/Thailand.png", post_id: 7)
+Asia1.create( asiaimg: "/assets/map/asia/singapore.png", post_id: 8)
+#호주 Asia1.create( asiaimg: "", post_id: 9)
 
 
-
-
+Ame1.create( ameimg: "/assets/map/asia/japan.png", america_id: 0)
+Ame1.create( ameimg: "/assets/map/asia/japan.png", america_id: 1)
+Ame1.create( ameimg: "/assets/map/asia/japan.png", america_id: 2)
+Ame1.create( ameimg: "/assets/map/asia/Thailand.png", america_id: 3)
+Ame1.create( ameimg: "/assets/map/asia/japan.png", america_id: 4)
+Ame1.create( ameimg: "/assets/map/asia/japan.png", america_id: 5)
