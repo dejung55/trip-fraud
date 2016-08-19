@@ -214,7 +214,10 @@ class HomeController < ApplicationController
   end
   
   def reply_updateview
+       
+    @one_post = Writing.find(params[:id])
     @reply_post = Reply.find(params[:id])
+    
   end
   
 
