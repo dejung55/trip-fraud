@@ -231,16 +231,20 @@ class HomeController < ApplicationController
   
   
   def post_like
-    Writing.find(params[:id]).users << current_user
-        redirect_to :back
-
-  end
-  
-  def post_unlike
-    one_post = Writing.find(params[:id])
-    current_user.post_likes.all.delete(one_post)
-        redirect_to :back
-
+    if user_signed_in?
+      one_writing = Writing.find(params[:id])
+      @check = true
+      current_user.post_likes.all.each do |l|
+        if l.writing_id == one_writing.id
+          current_user.post_likes.all.delete(l)
+          @check = false
+        end
+    end
+      if @check
+        PostLike.create(writing_id: params[:id], user_id: current_user.id)
+      end
+    end
+    redirect_to :back
   end
 
   
