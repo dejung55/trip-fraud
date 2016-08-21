@@ -44,8 +44,8 @@ class HomeController < ApplicationController
     new_post.title = params[:title]
     new_post.content = params[:content]
     new_post.post_id = params[:id_of_post]
-    file = params[:pic]
     uploader = TravelUploader.new
+    file = params[:pic]
     uploader.store!(file)
     new_post.user = current_user
     
