@@ -87,6 +87,11 @@ class HomeController < ApplicationController
     @one_post = Writing.find(params[:id])
     @one_post.title = params[:title]
     @one_post.content = params[:content]
+    uploader = TravelUploader.new
+    file = params[:pic]
+    uploader.store!(file)
+    @one_post.user = current_user
+    @one_post.image_url = uploader.url
     @one_post.save
     
     
