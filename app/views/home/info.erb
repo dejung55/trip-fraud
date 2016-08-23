@@ -7,7 +7,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://malsup.github.io/jquery.cycle2.js"></script>
     <script type="text/javascript" src="/assets/tinymce.js"></script>
-  
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.3/semantic.min.js"></script>
 </head>
     <body>
         
@@ -132,39 +132,54 @@
 
 <hr>
 
-       <div class ="container">
+       
             <div class="well" style = "margin-top:450px;padding-bottom: 10px; background:white">
-                <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
+
                 <h4>여행사기게시판</h4>
-                        <div class="row marketing">
-                 <div class="row">
-                    <% @every_post1.writings.each do |r| %>
-                     <div class="col-md-4">
-                        <h4><%= r.content.html_safe %></h4>
-                        <p><%= r.title %></p>
-
-                        <% unless r.image_url.empty? %>  
-                            <img src="<%= r.image_url %>">
-                        <% end %>
-
-
-                          
-                        <p><a class="btn btn-sm btn-default" href="/home/read/<%= r.id %>" role="button">자세히 보기</a></p>
-                     </div>
-                   <% end %>
-                 </div>
-              </div>
+                
+                <div class="ui link cards">
+                 
+                          <% @every_post1.writings.each do |r| %>
+                           <div class="card">
+                        <div class="image">
+                           <% unless r.image_url.empty? %>  
+                                <img src="<%= r.image_url %>">
+                            <% end %>
+    
+                        </div>
+                        <div class="content">
+                          <div class="header"><a href="/home/read/<%= r.id %>"><%= r.title %></a></div>
+                          <div class="meta">
+                            <a>Friends</a>
+                          </div>
+                          <div class="description">
+                            <%= r.content.html_safe %>
+                          </div>
+                        </div>
+                        <div class="extra content">
+                          <span class="right floated">
+                            <%= r.created_at.strftime("%h.%m.%Y") %>
+                          </span>
+                          <span class="left floated like">
+                              
+                               <a href="/home/post_like/<%=r.id%>"><i class="like icon"></i></a>
+                              <% if user_signed_in? && r.post_likes.where(writing_id: r.id, user_id: current_user.id).blank? %>
+                              <% elsif user_signed_in? %>
+                                 
+                             <% end %>
+                                  <%= r.post_likes.all.count %>Likes
+                            </span>
+                             </div>
+                      </div>    
+                           <% end %>
+                      
+                    </div>
+         
                           <input type="hidden" value="<%= @every_post1.id%>" name="id_of_post">
                           <button type="submit" class="btn btn-default"><a href = "/home/write/<%= @every_post1.id %>"> 작성 </a></button>
-              </div>
-             
-               
+            </div>
         </div>
-    </div>
-
-                
-</div>  
-
+ 
 
 <div class="slidePoint" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
 	<div class="container clearfix">

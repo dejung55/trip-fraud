@@ -65,7 +65,7 @@
                     <hr>
             <div style="height:300px;">
                         <% unless @every_post.image_url.empty? %>  
-                            <img src="<%= @every_post.image_url %>">
+                            <img src="<%= @every_post.image_url %>" height="42" width="42">
                         <% end %>
 
                 <%= @every_post.content.html_safe %>
