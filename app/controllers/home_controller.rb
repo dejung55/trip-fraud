@@ -113,17 +113,7 @@ class HomeController < ApplicationController
     
   end
    
-  def update
-      
-    @one_post = Writing.find(params[:id])
-    @one_post.title = params[:title]
-    @one_post.content = params[:content]
-    @one_post.save
-    
-    redirect_to "/home/info"
-    
-  end
-   
+
   def twitter
       
     @every_twitter = Twitter.all.order("id desc")

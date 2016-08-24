@@ -53,7 +53,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-6" style="padding-top: 150px;" >
             <h1 style="font-weight:bold; text-align:left"><%= @every_post.title %></h1>
-                <p style = "text-align:left">edit <%= @every_post.user.email%> | <%= @every_post.created_at.strftime("%h.%m.%Y") %></p>
+                <p style = "text-align:left">edit <%= @every_post.user.name %> | <%= @every_post.created_at.strftime("%h.%m.%Y") %></p>
                     <% if user_signed_in? && @every_post.user == current_user %>
                         <form action="/home/destroy/<%= @every_post.id %>" method="post" style="float: right;">
                             <button type="submit" class="btn btn-outline-secondary">삭제</button>
@@ -64,9 +64,7 @@
                     <% end %>
                     <hr>
             <div style="height:300px;">
-                        <% unless @every_post.image_url.empty? %>  
-                            <img src="<%= @every_post.image_url %>" height="42" width="42">
-                        <% end %>
+                   <!-- 이미지 -->
 
                 <%= @every_post.content.html_safe %>
                 
