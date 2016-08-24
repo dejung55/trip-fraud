@@ -7,28 +7,52 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 </head>
 
 <body>
-    <div class="menu-top">	
-        <div class="container clearfix">
-            <div id="logo" class="fleft">
-                <a class="navbar-brand" href="/">Travel Compass</a>
+     <div class="ui borderless top fixed menu" style="height:70px">
+      <div class="item">
+         <a class="navbar-brand" href="/home/index" style="margin-left: 0px; margin-right: 0px;padding-top: 10px;padding-bottom: 0px;"><img src="/assets/title_text2.png" width="230" height="30"></a>
+      </div>
+      
+      <div class="right menu"> 
+      <div class="item">
+       <form action="/home/search" method="GET">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="sample6" placeholder="검색하기" name="search" required>
+              <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
             </div>
-            <div id="nav" class="fright">
-                    <ul class="nav nav-pills pull-right">
-                        <li><a href ="/home/twitter"> 커뮤니티 </a></li>
-                      <% if user_signed_in? %>
-                        <li><%= current_user.email %><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
-                      <% else %>
-                        <li><%= link_to "로그인", new_user_session_path %></li>
-                        <li><%= link_to "회원가입", new_user_registration_path %></li>
-                      <% end %>
-                    </ul>
-            <div class="clear"></div>
-            </div>
-        </div>
+          </div>
+        </form>
     </div>
+    
+          <a class="item" href ="/home/twitter">커뮤니티</a>
+
+            <% if user_signed_in? %>
+               <div class="ui dropdown item">
+                 <%= current_user.email %><i class="dropdown icon"></i>
+               <div class="menu">
+                 <div class="item"><%= link_to "My Profile", edit_user_registration_path %></div>
+                 <div class="item"><%= link_to "로그아웃", destroy_user_session_path, :method => :get, data: { confirm: "확실하세요?" } %></div>
+               </div>
+              </div>
+            <% else %>
+            
+           <a class="item" href ="/users/sign_in">로그인</a>
+           <a class="item" href ="/users/sign_up">회원가입</a>
+            <% end %>
+    </div>
+  </div>
+
+        
+
     
     <div class="row">
         <div class="col-sm-3"></div>
@@ -48,44 +72,55 @@
                       <button type="submit" class="btn btn-default" > 작성 </button>
                     </form>
             </div>
-            
-            <div class="well" style = " padding-top: 0px;padding-bottom: 10px; background:white">
+  
+            <div class="ui segment">
                     <% @every_twitter.each do |p| %>
-                   
-                    <h5><%= p.twitter_title %> \\\\\\  <%= p.twitter_name %>  </h5>
+                    <h2 class="ui left floated header"><%= p.twitter_title %> | <%= p.twitter_name %></h2>
+                        <% if user_signed_in? && p.user == current_user %>
+                            <form action="/home/twitter_destroy/<%= p.id %>" method="post">
+                                <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
+                            </form>
+                            <form action="/home/twitter_updateview/<%= p.id %>" method="post">
+                                <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
+                            </form>
+                        <% end %>
+                    <div class="ui clearing divider"></div>
+                        <p><%= p.twitter_content %></p>
+                    
                     <br>
                     
-                    <hr>
-                        <%= p.twitter_content %>
-                    <br>
-                    <% if user_signed_in? && p.user == current_user %>
-                        <form action="/home/twitter_destroy/<%= p.id %>" method="post">
-                            <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
-                        </form>
-                        <form action="/home/twitter_updateview/<%= p.id %>" method="post">
-                            <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
-                        </form>
-                    <% end %>
-                    <br>
-                    
-                                    <% p. twitter_comment.each do |r| %>
-                                        <%= r.twitter_comment %> \ <%= r.name %>
-                                        <form action="/home/comment_destroy/<%= r.id %>" method="post">
-                                            <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
-                                         </form>
-                                         <form action="/home/comment_updateview/<%= r.id %>" method="post">
-                                            <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
-                                         </form>
-                                    <% end %>
-                                    
-                        <form action="/home/twitter_comment" method="POST">
+                    <div class="ui minimal comments">
+                      <div class="comment">
+                        <div class="content">
+                            <% p. twitter_comment.each do |r| %>
+                            
+                            
+                                                            
+                          <a class="author"><%= r.name %></a>
+                              <div class="metadata">
+                                <span class="date">Today at 5:42PM</span>
+                              </div>
+                                  <div class="text">
+                                       <%= r.twitter_comment %>
+                                  </div>
+                              <div class="actions">
+                                <a href="/home/comment_destroy/<%= r.id %>" method="POST" class="reply">삭제하기</a>
+                              </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+
+                <form action="/home/twitter_comment" method="POST">
                             <p>댓글</p>
                             <input type="hidden" value="<%= p.id%>" name="twitter_id">
                             <input type="hidden" value="<%= Faker::Name.last_name %>" name="name">
                             <textarea name="twitter_comment"rows="1"> </textarea>
                             <button type="submit" class="btn btn-default">Submit</button>
                         </form>
+                       
                     <% end %>
+                    </div> 
             </div>      
         </div>
        
