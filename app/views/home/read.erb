@@ -27,7 +27,7 @@
                  <form action="/home/search" method="GET" class="search">
                     <div class="field">
                       <input type="text" class="input-search" id="input-search" name="search" required>
-                      <label for="input-search">검색하기</label>
+                      <label for="input-search">검색하기ffff</label>
                     </div> <!-- /field -->
                   </form>
             </div>
@@ -53,7 +53,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-6" style="padding-top: 150px;" >
             <h1 style="font-weight:bold; text-align:left"><%= @every_post.title %></h1>
-                <p style = "text-align:left">edit <%= @every_post.user.email%> | <%= @every_post.created_at.strftime("%h.%m.%Y") %></p>
+                <p style = "text-align:left">edit <%= @every_post.user.name %> | <%= @every_post.created_at.strftime("%h.%m.%Y") %></p>
                     <% if user_signed_in? && @every_post.user == current_user %>
                         <form action="/home/destroy/<%= @every_post.id %>" method="post" style="float: right;">
                             <button type="submit" class="btn btn-outline-secondary">삭제</button>
@@ -64,29 +64,41 @@
                     <% end %>
                     <hr>
             <div style="height:300px;">
+                   <!-- 이미지 -->
+
                 <%= @every_post.content.html_safe %>
+                
             </div>
 
                 <hr>
     <!-- 좋아요 -->
                
-            <% if user_signed_in? %>        
-                <a href="/home/post_like/<%= @every_post.id %>">좋아요</a>
-                <a href="/home/post_unlike/<%= @every_post.id %>">좋아요 취소</a>
-                좋아요 갯수 <%= @every_post.post_likes.all.count %>
-            <% end %>
+             <% if user_signed_in? && @every_post.post_likes.where(writing_id: @every_post.id, user_id: current_user.id).blank? %>
+                 <a href="/home/post_like/<%=@every_post.id%>">좋아요</a>
+             <% elsif user_signed_in? %>
+                 <a href="/home/post_like/<%=@every_post.id%>">좋아요 취소</a>
+             <% end %>
+                  좋아요 갯수 <%= @every_post.post_likes.all.count %>
                 
         
         
         
            <!-- 댓글 되는 곳 -->
             
-                <label for="exampleInputEmail1">댓글(<%= @every_post.replies.count %>)</label><hr>
+                 <label for="exampleInputEmail1">댓글(<%= @every_post.replies.count %>)</label><hr>
                     <% @every_post.replies.each do |r| %>
                         <ul class="demo-list-three mdl-list">
                           <li class="mdl-list__item mdl-list__item--three-line">
                             <span class="mdl-list__item-primary-content">
                               <i class="material-icons mdl-list__item-avatar">person</i>
+                              <% if user_signed_in? && r.user == current_user %>
+                              <form action="/home/reply_destroy/<%= r.id %>" method="post" style="float: right;">
+                                    <button type="submit" class="btn btn-outline-secondary">삭제</button>
+                              </form>
+                              <form action="/home/reply_updateview/<%= r.id %>" method="post" style="float: right;">
+                                    <button type="submit" class="btn btn-outline-secondary delete">수정</button>
+                              </form>
+                            <% end %>
                               <span> <%= r.user.email%></span>
                               <span class="mdl-list__item-text-body">
                                 <%= r.content %>
@@ -94,15 +106,7 @@
                             </span>
                           </li>
                         </ul>
-                        
-                            <% if user_signed_in? && r.user == current_user %>
-                              <form action="/home/reply_destroy/<%= r.id %>" method="post" style="float: right;">
-                                    <button type="submit" class="btn btn-outline-secondary">삭제</button>
-                              </form>
-                              <form action="/home/reply_updateview/<%= r.id %>" method="post" style="float: right;">
-                                    <button type="submit" class="btn btn-outline-secondary delete">수정</button>
-                              </form>
-                            <% end %><hr>
+                        <hr>
                     <% end %>
                 <form action= "/home/reply_write" style="margin-top:4px;" method='POST'>
                     <input type="hidden" value="<%= @every_post.id%>" name="id_of_post">

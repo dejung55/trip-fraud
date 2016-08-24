@@ -44,8 +44,8 @@ class HomeController < ApplicationController
     new_post.title = params[:title]
     new_post.content = params[:content]
     new_post.post_id = params[:id_of_post]
-    file = params[:pic]
     uploader = TravelUploader.new
+    file = params[:pic]
     uploader.store!(file)
     new_post.user = current_user
     
@@ -87,6 +87,11 @@ class HomeController < ApplicationController
     @one_post = Writing.find(params[:id])
     @one_post.title = params[:title]
     @one_post.content = params[:content]
+    uploader = TravelUploader.new
+    file = params[:pic]
+    uploader.store!(file)
+    @one_post.user = current_user
+    @one_post.image_url = uploader.url
     @one_post.save
     
     
@@ -108,17 +113,7 @@ class HomeController < ApplicationController
     
   end
    
-  def update
-      
-    @one_post = Writing.find(params[:id])
-    @one_post.title = params[:title]
-    @one_post.content = params[:content]
-    @one_post.save
-    
-    redirect_to "/home/info"
-    
-  end
-   
+
   def twitter
       
     @every_twitter = Twitter.all.order("id desc")
@@ -231,16 +226,20 @@ class HomeController < ApplicationController
   
   
   def post_like
-    Writing.find(params[:id]).users << current_user
-        redirect_to :back
-
-  end
-  
-  def post_unlike
-    one_post = Writing.find(params[:id])
-    current_user.post_likes.all.delete(one_post)
-        redirect_to :back
-
+    if user_signed_in?
+      one_writing = Writing.find(params[:id])
+      @check = true
+      current_user.post_likes.all.each do |l|
+        if l.writing_id == one_writing.id
+          current_user.post_likes.all.delete(l)
+          @check = false
+        end
+    end
+      if @check
+        PostLike.create(writing_id: params[:id], user_id: current_user.id)
+      end
+    end
+    redirect_to :back
   end
 
   

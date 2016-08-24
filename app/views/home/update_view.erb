@@ -21,21 +21,18 @@
 <h1> -글을 수정하는 페이지- </h1>
 
     <div class = "container" style=" margin-top: 100px;">
-       <form action="/home/update/<%= @one_post.id %>" method="POST">
-       
+       <form action="/home/update/<%= @one_post.id %>" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label for="exampleInputEmail1"> - 제목 - </label>
             <input type="text" class="form-control" name="title" placeholder="제목을 입력해주세요" value="<%= @one_post.title %>">
           </div>
-          
           <br>
-          
             <label for="exampleInputEmail1"> - 내용 - </label>
-            <textarea class="form-control" rows="30" placeholder="내용을 입력해주세요" name="content"><%= @one_post.content %></textarea>
+            <textarea class="form-control tinymce" rows="30" placeholder="내용을 입력해주세요" name="content"><%= @one_post.content.html_safe %></textarea>
+            <input type="file" name="pic" accept="image/*" title="가가"></input>
           <br>
-          
             <button type="submit" class="btn btn-default"> 작성 </button>
-        </form>
+      </form>
 
           <br>
           <br>
@@ -45,3 +42,4 @@
           <p>&copy; Travel Compass. Team. 영남대학교 멋쟁이사자처럼 </p>
         </footer>
     </div>
+    <%= tinymce plugins: ["uploadimage"] %>
