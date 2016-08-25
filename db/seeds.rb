@@ -34,11 +34,11 @@ Africa.create( id: "1", title:"남아공", img: "https://upload.wikimedia.org/wi
 #위험경보 이미지
 
 #<아시아>
-Asia1.create( asiaimg: "/assets/map/japan.png", post_id: 0)
-Asia1.create( asiaimg: "/assets/map/china.png", post_id: 1)
-Asia1.create( asiaimg: "/assets/map/Philippines.png", post_id: 2)
-Asia1.create( asiaimg: "/assets/map/India.png", post_id: 3)
-Asia1.create( asiaimg: "/assets/map/singapore.png", post_id: 4)
+Asia1.create( asiaimg: "/assets/map/japan.png", asia_1:"/assets/jap1.png", asia_2:"/assets/japan2.png", asia_3:"/assets/japan3.png", post_id: 0)
+Asia1.create( asiaimg: "/assets/map/china.png", asia_1:"/assets/china1.png", asia_2:"/assets/china2.png", asia_3:"/assets/china3.png", post_id: 1)
+Asia1.create( asiaimg: "/assets/map/Philippines.png", asia_1:"/assets/philippine1.png", asia_2:"/assets/philippine2.png", asia_3:"/assets/philippine3.png", post_id: 2)
+Asia1.create( asiaimg: "/assets/map/India.png", asia_1:"/assets/india1.png", asia_2:"/assets/india2.png", asia_3:"/assets/india3.png", post_id: 3)
+Asia1.create( asiaimg: "/assets/map/singapore.png", asia_1:"/assets/singapore1.png", asia_2:"/assets/singapore2.png", asia_3:"/assets/singapore3.png",  post_id: 4)
 
 # <아메리카>
 Ame1.create( ameimg: "/assets/map/usa.png", america_id: 0)
