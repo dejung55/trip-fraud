@@ -118,7 +118,7 @@
                        <img class="icon_img" src="/assets/icon2.jpg" alt=""/>
                           <h3 style ="text-align:left">  여행사기게시판  
                           <input type="hidden" value="<%= @every_post1.id%>" name="id_of_post">
-                          <button type="submit" class="btn btn-default" style="margin-left: 550px;"><a href = "/home/write/<%= @every_post1.id %>"> 작성 </a></button>
+                          <a href = "/home/write/<%= @every_post1.id %>"> <img src="/assets/write.png" style=" height : 50px;" align="right" id="write_botton"/> </a>
                           </h3>
 </div>
             <div class="slidePoint" style = "margin-top: 0px;padding-bottom: 10px;background:white;margin-left: 0px;border-left-width: 20px;padding-left: 10px;">
@@ -256,7 +256,16 @@
 			    });
     </script>
         
-    
+   <!--마우스 이미지 오버랩-->
+    <script>
+        $( "#write_botton" ).hover(
+          function() {
+            $( this ).attr('src','/assets/write_1.png' );
+          }, function() {
+            $( this ).attr('src','/assets/write.png' );
+          }
+        );
+     </script>    
 
 	
 	

@@ -1,16 +1,37 @@
-<h2>Forgot your password?</h2>
+<div class = "container" align = "center">
+      <div class="row" style= "margin-top : 150px;border: 1px solid gray; ">
+          <div class="col-sm-4 col-md-4" style=" height : 500px; ">
+ 
+            <h1 style= "margin-top : 50px;">Forgot your password?</h1>
+             
+            
+            <form style= "margin-top : 50px;">
+              <input type="underline"  placeholder="Email Adrees"> <span class="glyphicon glyphicon-user" style="color:gray;" aria-hidden="true"></span>
+            </form>
+            
+            </button>
+            </body>
+            </html>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= devise_error_messages! %>
+            
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+            
+              <div class="actions">
+                <%= f.submit "Send me reset password instructions" %>
+              </div>
+            <% end %>
+            
+            <%= render "devise/shared/links" %>
+          </div>
+          <div class="col-sm-7 col-md-7"  style=" height : 500px; width : 650px; position: relative; right:0px;">
+              <img src="/assets/login.png" style=" height : 500px;  width : 650px; position: relative; right: 0px;" align="left" />
+              <a href="/home/index"><img src="/assets/x_img.png" style=" height : 25px;  width : 25px; position: absolute; right: 10px; top:20px" align="right" /></a>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+      </div>  
+</div>
