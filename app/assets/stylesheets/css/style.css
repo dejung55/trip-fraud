@@ -24,6 +24,14 @@
 
 /* Global */
 
+input[type=underline] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid gray;
+}
 
 body {
 	font-family: 'Open sans',sans-serif;
