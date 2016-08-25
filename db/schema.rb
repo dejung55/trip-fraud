@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 20160823092419) do
 
   create_table "asia1s", force: :cascade do |t|
     t.string   "asiaimg"
+    t.string   "asia_1"
+    t.string   "asia_2"
+    t.string   "asia_3"
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
