@@ -113,16 +113,21 @@
         </div>
 
 <hr>
+            <div class="slidePoint" style = "background:white">
 
-       
-            <div class="well" style = "margin-top:450px;padding-bottom: 10px; background:white">
-
-                <h4>여행사기게시판</h4>
-                
+                       <img class="icon_img" src="/assets/icon2.jpg" alt=""/>
+                          <h3 style ="text-align:left">  여행사기게시판  
+                          <input type="hidden" value="<%= @every_post1.id%>" name="id_of_post">
+                          <button type="submit" class="btn btn-default" style="margin-left: 550px;"><a href = "/home/write/<%= @every_post1.id %>"> 작성 </a></button>
+                          </h3>
+</div>
+            <div class="slidePoint" style = "margin-top: 0px;padding-bottom: 10px;background:white;margin-left: 0px;border-left-width: 20px;padding-left: 10px;">
+             
+                          <br>
                 <div class="ui link cards">
                  
                           <% @every_post1.writings.each do |r| %>
-                           <div class="card">
+                           <div class="card col-md-4">
                         <div class="image">
                       <!-- 이미지 -->
     
@@ -155,8 +160,7 @@
                       
                     </div>
          
-                          <input type="hidden" value="<%= @every_post1.id%>" name="id_of_post">
-                          <button type="submit" class="btn btn-default"><a href = "/home/write/<%= @every_post1.id %>"> 작성 </a></button>
+                         
             </div>
         </div>
  
@@ -164,7 +168,7 @@
 <div class="slidePoint" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
 	<div class="container clearfix">
 		<img class="icon_img" src="/assets/icon2.jpg" alt=""/>
-		<h2 style ="text-align:left">인기여행지</h2>
+		<h3 style ="text-align:left">인기여행지</h3>
 		<br>
 	
         <div class="container text-center">
