@@ -88,9 +88,7 @@
     <div class="seven wide column">
         <div class="ui top attached header">
             <% @every_twitter.each do |p| %> 
-                <h5><%= p.twitter_title %></h5><p style="color:gray"><%=p.created_at.strftime("%h/%m/%Y") %></p>
-            
-            
+                <h5><%= p.twitter_title %>
                         <% if user_signed_in? && p.user == current_user %>
                             <form action="/home/twitter_destroy/<%= p.id %>" method="post">
                                 
@@ -100,6 +98,10 @@
                                 <button type="submit" class="mdl-button mdl-js-button" style="float: right">수정</button>
                             </form>
                         <% end %>
+                </h5>
+                
+                <p style="color:gray"><%=p.created_at.strftime("%h/%m/%Y") %></p>
+                        
                 <hr>
                      <p><%= p.twitter_content %></p>
                   <hr>
@@ -114,15 +116,17 @@
                       <div class="comment">
                         <div class="content">
                             <% p. twitter_comment.each do |r| %>
-                              <a class="author"><%= r.name %></a>
-                                  <div class="metadata">
-                                    <span class="date"><%=p.created_at.strftime("%h/%m/%Y") %></span>
-                                  </div>
+                              <a class="author"><%= r.name %>  
+                                  <a href="/home/comment_destroy/<%= r.id %>" method="POST" class="reply" style="float:right">삭제하기</a>
+                              </a>
+                                      <div class="metadata">
+                                        <span class="date"><%=p.created_at.strftime("%h/%m/%Y") %></span>
+                                      </div>
                                   <div class="text">
                                        <%= r.twitter_comment %>
                                   </div>
                               
-                                <a href="/home/comment_destroy/<%= r.id %>" method="POST" class="reply" style="float:right">삭제하기</a>
+                               
                               
                               <% end %>
                         </div>
