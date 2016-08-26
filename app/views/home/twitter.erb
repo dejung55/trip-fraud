@@ -118,8 +118,10 @@
                         <div class="content">
                                   <br>
                             <% p. twitter_comment.each do |r| %>
-                              <a class="author"><%= r.name %>  
+                              <a class="author"><%= r.name %>
+                              <% if user_signed_in? && r.user == current_user %>
                                   <a href="/home/comment_destroy/<%= r.id %>" method="POST" class="reply" style="float:right">삭제</a>
+                              <% end %>    
                               </a>
                                       <div class="metadata">
                                         <span class="date"><%=p.created_at.strftime("%h/%m/%Y") %></span>
