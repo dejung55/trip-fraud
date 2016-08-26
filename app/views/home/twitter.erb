@@ -10,9 +10,11 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
 <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+
 </head>
 
 <body>
+  
      <div class="ui borderless top fixed menu" style="height:70px">
       <div class="item">
          <a class="navbar-brand" href="/home/index" style="margin-left: 0px; margin-right: 0px;padding-top: 10px;padding-bottom: 0px;"><img src="/assets/title_text2.png" width="230" height="30"></a>
@@ -53,14 +55,16 @@
 
         
 
-    
-    <div class="row">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6" style="margin-top: 90px;">
-            <div class="well" style = " padding-top: 0px;padding-bottom: 10px; background:white">
-                <img class="icon_img" src="/assets/icon3.jpg" alt=""/>
-                <h2 style = "text-align: left">자유게시판</h2>
-                    <form action ="/home/twitter_write" method="POST">
+// 글쓰는곳    
+  <div class="ui internally celled grid">
+  <div class="row">
+        <div class="three wide column"></div>
+        
+        <div class="ten wide column">
+            <h3 style = "text-align: center">Community</h3>
+                <br>
+                <br>
+          <form action ="/home/twitter_write" method="POST">
                           <div class="form-group" >
                             <label for="exampleInputEmail1"></label>
                             <input type="hidden" value="<%= Faker::Name.first_name %>" name="twitter_name">
@@ -68,14 +72,24 @@
                             <label for="exampleInputPassword1"></label>
                           
                             <textarea type="text"class="form-control" name="twitter_content" placeholder="내용을 입력하세요" rows="3"></textarea>
+                            <br>
+                            <button type="submit" class="btn btn-default" style="float: right;" > 작성 </button>
                           </div>
-                      <button type="submit" class="btn btn-default" > 작성 </button>
-                    </form>
-            </div>
+                      
+            </form>
+        </div>
+        
+        <div class="three wide column"> </div>
+  </div>
   
-            <div class="ui segment">
-                    <% @every_twitter.each do |p| %>
-                    <h2 class="ui left floated header"><%= p.twitter_title %> | <%= p.twitter_name %></h2>
+//글보는곳 
+<div class="row">
+    <div class="three wide column"></div>
+    <div class="ten wide column">
+        <div class="ui top attached header">
+            <% @every_twitter.each do |p| %>
+                <h4 style="text-align: left"><%= p.twitter_title %></h4>
+                <hr>
                         <% if user_signed_in? && p.user == current_user %>
                             <form action="/home/twitter_destroy/<%= p.id %>" method="post">
                                 <button type="submit" class="btn btn-default" style="margintop:20px" align="right">삭제</button>
@@ -84,54 +98,59 @@
                                 <button type="submit" class="btn btn-default" style="margintop:20px">수정</button>
                             </form>
                         <% end %>
-                    <div class="ui clearing divider"></div>
-                        <p><%= p.twitter_content %></p>
+                
+                     <p><%= p.twitter_content %></p>
+                
+
+                    </div>
                     
-                    <br>
-                    
+  <div class="ui attached segment" style="background:#F2F2F2">             
                     <div class="ui minimal comments">
                       <div class="comment">
                         <div class="content">
                             <% p. twitter_comment.each do |r| %>
-                            
-                            
-                                                            
-                          <a class="author"><%= r.name %></a>
-                              <div class="metadata">
-                                <span class="date">Today at 5:42PM</span>
-                              </div>
+                              <a class="author"><%= r.name %></a>
+                                  <div class="metadata">
+                                    <span class="date">Today at 5:42PM</span>
+                                  </div>
                                   <div class="text">
                                        <%= r.twitter_comment %>
                                   </div>
                               <div class="actions">
                                 <a href="/home/comment_destroy/<%= r.id %>" method="POST" class="reply">삭제하기</a>
                               </div>
-                          <% end %>
+                              <% end %>
                         </div>
                       </div>
                     </div>
-
-                <form action="/home/twitter_comment" method="POST">
-                            <p>댓글</p>
+//댓글 쓰는곳
+                    <form action="/home/twitter_comment" method="POST">
+                        <p>댓글</p>
                             <input type="hidden" value="<%= p.id%>" name="twitter_id">
                             <input type="hidden" value="<%= Faker::Name.last_name %>" name="name">
                             <textarea name="twitter_comment"rows="1"> </textarea>
                             <button type="submit" class="btn btn-default">Submit</button>
-                        </form>
+                    </form>
                        
                     <% end %>
-                    </div> 
-            </div>      
-        </div>
-       
-    </div>
+                    </div>
+                    
+</div>
+        <div class="three wide column"> </div>
+ </div>
+</div>
+
     
+
+
+
+//마지막
     <div id="footer">
         <div class="container clearfix">
             <div class="copyright">Travel the World &copy; 2020 | <a href="javascript:void(0);">Privacy Policy</a></div>
         </div>
     </div>
- </form>
+ 
 </html>
     
 

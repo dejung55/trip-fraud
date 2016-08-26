@@ -9,7 +9,7 @@ Post.create( id: "0", title3:"일본", img3: "https://upload.wikimedia.org/wikip
 Post.create( id: "1", title3:"중국", img3: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/900px-Flag_of_the_People%27s_Republic_of_China.svg.png")
 Post.create( id: "2", title3:"필리핀", img3: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_the_Philippines.svg/900px-Flag_of_the_Philippines.svg.png")
 Post.create( id: "3", title3:"인도", img3: "http://www.icons.or.kr/attach/board/migration/icons/cooper371/1243489097.02.jpg")
-Post.create( id: "4", title3:"싱가폴", img3: "https://www.google.co.kr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjE3-3JhtzOAhXFopQKHar8AQwQjRwIBw&url=http%3A%2F%2Fglobal.rakuten.com%2Fko%2Fstore%2Fsaiga%2Fitem%2F409074%2F&psig=AFQjCNEK5sicWFGEqlm4NuXYFL1PSjbEpA&ust=1472196792000703")
+Post.create( id: "4", title3:"싱가폴", img3: "/assets/tldrkvhf.png")
 
 
 
@@ -34,11 +34,11 @@ Africa.create( id: "1", title:"남아공", img: "https://upload.wikimedia.org/wi
 #위험경보 이미지
 
 #<아시아>
-Asia1.create( asiaimg: "/assets/map/japan.png", post_id: 0)
-Asia1.create( asiaimg: "/assets/map/china.png", post_id: 1)
-Asia1.create( asiaimg: "/assets/map/Philippines.png", post_id: 2)
-Asia1.create( asiaimg: "/assets/map/India.png", post_id: 3)
-Asia1.create( asiaimg: "/assets/map/singapore.png", post_id: 4)
+Asia1.create( asiaimg: "/assets/map/japan.png", asia_1:"/assets/jap1.png", asia_2:"/assets/japan2.png", asia_3:"/assets/japan3.png", post_id: 0)
+Asia1.create( asiaimg: "/assets/map/china.png", asia_1:"/assets/china1.png", asia_2:"/assets/china2.png", asia_3:"/assets/china3.png", post_id: 1)
+Asia1.create( asiaimg: "/assets/map/Philippines.png", asia_1:"/assets/philippine1.png", asia_2:"/assets/philippine2.png", asia_3:"/assets/philippine3.png", post_id: 2)
+Asia1.create( asiaimg: "/assets/map/India.png", asia_1:"/assets/india1.png", asia_2:"/assets/india2.png", asia_3:"/assets/india3.png", post_id: 3)
+Asia1.create( asiaimg: "/assets/map/singapore.png", asia_1:"/assets/singapore1.png", asia_2:"/assets/singapore2.png", asia_3:"/assets/singapore3.png",  post_id: 4)
 
 # <아메리카>
 Ame1.create( ameimg: "/assets/map/usa.png", america_id: 0)

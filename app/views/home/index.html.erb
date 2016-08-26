@@ -15,13 +15,15 @@
               <!--ASIA-->
 	          <% @nation_Asi.each do |r| %>
 	         <form action="/home/info/<%= r.id %>" method="GET">
-    	      	<div class="asia box col1 hover-item" style="margin-top: 50px; margin-left: 20px; margin-right: 20px;">
+    	      	<div class="asia box col1 hover-item" style="margin-top: 80px; margin-left: 20px; margin-right: 20px;">
     	           <div class="view view-first">
-    	               <img class="imgTop" style="width:100px; height:50px;" alt="Ipsum" align="left" src="<%= r.img3%>" />
+    	               <a href="/home/info/<%= r.id %>">
+    	               <img class="imgTop" style ="width:80px; height:50px;" alt="Ipsum" align="left" src="<%= r.img3%>" />
+    	               </a>
     	           </div>
                    <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px; ">
-	                   <p align="center"><a role="button"><%= r.title3%></p></a>
-	                   <br><input  TYPE="IMAGE" src="/assets/map_pin.png" value="Submit"  align="absmiddle"></br>
+	                   <p align="center"><a role="button" href="/home/info/<%= r.id %>"><%= r.title3%></p></a>
+	                   
 
 	               </div>
     	         </div>
@@ -30,51 +32,61 @@
 	
               <!--AMERICA-->
     
+    
               <% @nation_Ame.each do |r| %>
             <form action="/america/info/<%= r.id %>" method="GET">   
-              <div class="america box col1 hover-item" style="margin-top: 50px; margin-left: 12px; margin-right: 20px;">
+              <div class="america box col1 hover-item" style="margin-top: 80px; margin-left: 20px; margin-right: 20px;">
 	              <div class="view view-first">
-	                  <img class="imgTop"  style="width:100px; height:50px;" alt="Ipsum" src="<%= r.img2%>"/>
+	                  <a href="/america/info/<%= r.id %>">
+	                  <img class="imgTop" style ="width:80px; height:50px;"  alt="Ipsum" src="<%= r.img2%>"/>
+	                  </a>
 	              </div>
 	              <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px;">
-	                  <p align="center"><a role="button"><%= r.title2 %></a></p>
-	                   <br><input  TYPE="IMAGE" src="/assets/map_pin.png" value="Submit"  align="absmiddle"></br>
-	                  
+	                  <p align="center"><a role="button" href="/america/info/<%= r.id %>"><%= r.title2 %></a></p>
+	                   
 	             </div>
 	          </div>
 	        </form>
 	          <% end %>
+
     
               <!--EUROPE-->
               <% @nation_Eur.each do |r| %>
              <form action="/europe/info/<%= r.id %>" method="GET">   
-              <div class="europe box col2 hover-item" style="width:100px; height:120px; margin-top: 100px; margin-left: 20px; margin-right: 20px;">
+              <div class="europe box col1 hover-item"style="margin-top: 80px; margin-left: 20px; margin-right: 20px;">
 	              <div class="view view-first">
-	                  <img class="imgTop" style="width:100px; height:50px;" alt="Ipsum" src="<%= r.img1 %>"/>
+	                   <a href="/europe/info/<%= r.id %>">
+	                  <img class="imgTop"  style ="width:80px; height:50px;" alt="Ipsum" src="<%= r.img1 %>"/>
+	                  </a>
 	              </div>
 	              <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px;">
-	                  <p align="center"><%= r.title1 %></p>
-                      <input  TYPE="IMAGE" src="/assets/plane.png" style="width:20px; height:20px;; margin-top:0px;" value="Submit"  align="absmiddle"></br>
+	                  <p align="center"><a role="button" href="/europe/info/<%= r.id %>"><%= r.title1 %></a></p>
+	                  
                   </div>
 	          </div>
 	          </form>
 	          <% end %>
-	
+	          
+	          
+	          
               <!--AFRICA-->	          
 	         <% @nation_Afr.each do |r| %>
 	         <form action="/africa/info/<%= r.id %>" method="GET">   
-             <div class="africa box col1 hover-item" style="margin-top: 50px; margin-left: 10px; margin-right: 10px;">
+             <div class="africa box col1 hover-item" style="margin-top: 80px; margin-left: 20px; margin-right: 20px;">
                 <div class="view view-first">
-                    <img class="imgTop"  style="width:100px; height:50px;" alt="Ipsum" src="<%= r.img %>"/>
+                    <a href ="/africa/info/<%= r.id %>">
+                    <img class="imgTop" style ="width:80px; height:50px;"  alt="Ipsum" src="<%= r.img %>"/>
+                    </a>
                  </div>
                  <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px;">
-                     <p align="center"><a role="button" ><%= r.title %></a></p>
-	                   <br><input  TYPE="IMAGE" src="/assets/map_pin.png" value="Submit"  align="absmiddle"></br>
-                 </div>
+                     <p align="center"><a role="button" href ="/africa/info/<%= r.id %>" ><%= r.title %></a></p>
+	              </div>    
 	          </div>
 	          </form>
 	          <% end %>
-	  </div>
+	          
+	          
+    </div>
 	      
 
 
