@@ -16,37 +16,40 @@
 </head>
 
 <body>
-    <div class="menu-top">	
-        <div class="container clearfix">
-            <div id="logo" class="fleft">
-                <a class="navbar-brand" href="/"><img src="/assets/title_text2.png"  width="270" height="30"></a>
+      <div class="ui borderless top fixed menu" style="height:70px">
+      <div class="item">
+         <a class="navbar-brand" href="/home/index" style="margin-left: 0px; margin-right: 0px;padding-top: 10px;padding-bottom: 0px;"><img src="/assets/title_text2.png" width="230" height="30"></a>
+      </div>
+      
+      <div class="right menu"> 
+          <div class="item">
+           <form action="/home/search" method="GET">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                  <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                  <input class="mdl-textfield__input" type="text" id="sample6" placeholder="검색하기" name="search" required>
+                  <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                </div>
+              </div>
+            </form>
+         </div>
+          <a class="item" href ="/home/twitter">커뮤니티</a>
+            <% if user_signed_in? %>
+               <div class="ui dropdown item">
+                 <%= current_user.email %>
             </div>
+            <div class="ui dropdown item">
+                 <a class="item"><%= link_to "로그아웃", destroy_user_session_path, :method => :get, data: { confirm: "확실하세요?" } %></a>
+              </div>
+            <% else %>
             
-            
-            <div id="nav" class="fright">
-                 <form action="/home/search" method="GET" class="search">
-                    <div class="field">
-                      <input type="text" class="input-search" id="input-search" name="search" required>
-                      <label for="input-search">검색하기</label>
-                    </div> <!-- /field -->
-                  </form>
-            </div>
-            
-            <div id="nav" class="fright">
-                <ul class="nav nav-pills pull-right">
-                    <li><a href ="/home/twitter"> 커뮤니티 </a></li>
-                  <% if user_signed_in? %>
-                    <li><%= current_user.email %><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
-                  <% else %>
-                    <li><%= link_to "로그인", new_user_session_path %></li>
-                    <li><%= link_to "회원가입", new_user_registration_path %></li>
-                  <% end %>
-                </ul>
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
- 
+           <a class="item" href ="/users/sign_in">로그인</a>
+           <a class="item" href ="/users/sign_up">회원가입</a>
+            <% end %>
+     </div>
+  </div>
   <!-- 게시판 글 보는 곳 -->
     
     <div class="row">
