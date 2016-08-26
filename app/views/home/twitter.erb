@@ -61,7 +61,8 @@
   <div class="row">
         <div class="four wide column" style=" background-color: #F2F2F2"></div>
         
-        <div class="seven wide column">
+        <div class="seven wide column" style="    margin-top: 50px;
+">
             <h3 style = "text-align: center">Community</h3>
                 <br>
                
@@ -70,10 +71,10 @@
                             <label for="exampleInputEmail1"></label>
                             <input type="hidden" value="<%= Faker::Name.first_name %>" name="twitter_name">
                             
-                            <input type="text" class="form-control" name="twitter_title" placeholder="제목을 입력하세요">
+                            <input type="text" class="form-control" name="twitter_title" placeholder="제목을 입력하세요" style="border:none; border-bottom:1px solid gray; height:3rem; width:80%;">
                             <label for="exampleInputPassword1"></label>
-                              <textarea type="text"class="form-control" name="twitter_content" placeholder="내용을 입력하세요" rows="3"></textarea>
-                          
+                              <textarea type="text"class="form-control" name="twitter_content" placeholder="내용을 입력하세요" rows="5" style="border:none; border-bottom:1px solid gray; height:7rem; width:100%;"></textarea>
+                          <br>
                             <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="float: right;" > 작성 </button>
                           </div>
                       
@@ -87,6 +88,7 @@
     <div class="four wide column"style="background-color: #F2F2F2"></div>
     <div class="seven wide column">
         <div class="ui top attached header">
+            
             <% @every_twitter.each do |p| %> 
                 <h5><%= p.twitter_title %>
                         <% if user_signed_in? && p.user == current_user %>
@@ -104,26 +106,26 @@
                         
                 <hr>
                      <p><%= p.twitter_content %></p>
-                  <hr>
-         
-                 
-            
-        <i class="talk icon"><p> 댓글 (<%=  p.twitter_comment.all.count %>)</p></i>
+<p style="float:right"><i class="talk icon"></i> 댓글 (<%=  p.twitter_comment.all.count %>)</p>
+    <br>
                     </div>
-                    
+                 
   <div class="ui attached segment" style="background:#FAFAFA">             
-                    <div class="ui minimal comments">
+                    <div class="ui minimal comments" style="
+    margin-bottom: 5px;
+">
                       <div class="comment">
                         <div class="content">
+                                  <br>
                             <% p. twitter_comment.each do |r| %>
                               <a class="author"><%= r.name %>  
-                                  <a href="/home/comment_destroy/<%= r.id %>" method="POST" class="reply" style="float:right">삭제하기</a>
+                                  <a href="/home/comment_destroy/<%= r.id %>" method="POST" class="reply" style="float:right">삭제</a>
                               </a>
                                       <div class="metadata">
                                         <span class="date"><%=p.created_at.strftime("%h/%m/%Y") %></span>
                                       </div>
                                   <div class="text">
-                                       <%= r.twitter_comment %>
+                                           <p>  <%= r.twitter_comment %></p>
                                   </div>
                               
                                
@@ -146,12 +148,13 @@
                               <% end %>
                           </div>
                         </div>
-                           </div>
-                    
-</div>
-        <div class="five wide column"style=" background-color: #F2F2F2"> </div>
+                        
+                         </div>
+                         </div>
+                         <div class="five wide column"style=" background-color: #F2F2F2"> </div>
+                         </div>
  </div>
-</div>
+
 
     
 
