@@ -15,10 +15,10 @@
               <!--ASIA-->
 	          <% @nation_Asi.each do |r| %>
 	         <form action="/home/info/<%= r.id %>" method="GET">
-    	      	<div class="asia box col1 hover-item" style="margin-top: 50px; margin-left: 10px; margin-right: 10px;">
+    	      	<div class="asia box col1 hover-item" style="margin-top: 80px; margin-left: 20px; margin-right: 20px;">
     	           <div class="view view-first">
     	               <a href="/home/info/<%= r.id %>">
-    	               <img class="imgTop" alt="Ipsum" align="left" src="<%= r.img3%>" />
+    	               <img class="imgTop" style ="width:80px; height:50px;" alt="Ipsum" align="left" src="<%= r.img3%>" />
     	               </a>
     	           </div>
                    <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px; ">
@@ -32,12 +32,13 @@
 	
               <!--AMERICA-->
     
+    
               <% @nation_Ame.each do |r| %>
             <form action="/america/info/<%= r.id %>" method="GET">   
-              <div class="america box col1 hover-item" style="margin-top: 50px; margin-left: 10px; margin-right: 10px;">
+              <div class="america box col1 hover-item" style="margin-top: 80px; margin-left: 20px; margin-right: 20px;">
 	              <div class="view view-first">
 	                  <a href="/america/info/<%= r.id %>">
-	                  <img class="imgTop" alt="Ipsum" src="<%= r.img2%>"/>
+	                  <img class="imgTop" style ="width:80px; height:50px;"  alt="Ipsum" src="<%= r.img2%>"/>
 	                  </a>
 	              </div>
 	              <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px;">
@@ -47,14 +48,15 @@
 	          </div>
 	        </form>
 	          <% end %>
+
     
               <!--EUROPE-->
               <% @nation_Eur.each do |r| %>
              <form action="/europe/info/<%= r.id %>" method="GET">   
-              <div class="europe box col1 hover-item" style="margin-top: 50px; margin-left: 10px; margin-right: 10px;">
+              <div class="europe box col1 hover-item"style="margin-top: 80px; margin-left: 20px; margin-right: 20px;">
 	              <div class="view view-first">
 	                   <a href="/europe/info/<%= r.id %>">
-	                  <img class="imgTop" alt="Ipsum" src="<%= r.img1 %>"/>
+	                  <img class="imgTop"  style ="width:80px; height:50px;" alt="Ipsum" src="<%= r.img1 %>"/>
 	                  </a>
 	              </div>
 	              <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px;">
@@ -64,14 +66,16 @@
 	          </div>
 	          </form>
 	          <% end %>
-	
+	          
+	          
+	          
               <!--AFRICA-->	          
 	         <% @nation_Afr.each do |r| %>
 	         <form action="/africa/info/<%= r.id %>" method="GET">   
-             <div class="africa box col1 hover-item" style="margin-top: 50px; margin-left: 10px; margin-right: 10px;">
+             <div class="africa box col1 hover-item" style="margin-top: 80px; margin-left: 20px; margin-right: 20px;">
                 <div class="view view-first">
                     <a href ="/africa/info/<%= r.id %>">
-                    <img class="imgTop" alt="Ipsum" src="<%= r.img %>"/>
+                    <img class="imgTop" style ="width:80px; height:50px;"  alt="Ipsum" src="<%= r.img %>"/>
                     </a>
                  </div>
                  <div class="layer_txt" style="padding-top: 5px;padding-bottom: 5px;">
@@ -80,7 +84,9 @@
 	          </div>
 	          </form>
 	          <% end %>
-	  </div>
+	          
+	          
+    </div>
 	      
 
 

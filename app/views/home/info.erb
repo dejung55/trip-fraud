@@ -43,11 +43,10 @@
           <a class="item" href ="/home/twitter">커뮤니티</a>
             <% if user_signed_in? %>
                <div class="ui dropdown item">
-                 <%= current_user.email %><i class="dropdown icon"></i>
-               <div class="menu">
-                 <a class="item"><%= link_to "My Profile", edit_user_registration_path %></a>
+                 <%= current_user.email %>
+            </div>
+            <div class="ui dropdown item">
                  <a class="item"><%= link_to "로그아웃", destroy_user_session_path, :method => :get, data: { confirm: "확실하세요?" } %></a>
-               </div>
               </div>
             <% else %>
             
@@ -59,14 +58,12 @@
 
         
     
-        <div id="info-pages" class="container clearfix " style="margin-top: 120px;" align="center">
-            <div class="grid_12 row" style="margin-bottom: 1000" >
-
-
+<div id="info-pages" class="container clearfix " style="margin-top: 120px;" align="center">
+       <div class="grid_12 row" style="margin-bottom: 1000" >
 
 <!--slide-->
-                <div id="myCarousel" style = "height: 500px; width: 1000px;" class="carousel slide" data-ride="carousel">
-                  <!-- Indicators -->
+            <div id="myCarousel" style = "height: 500px; width: 1000px;" class="carousel slide" data-ride="carousel">
+
                   <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -74,6 +71,7 @@
                     <li data-target="#myCarousel" data-slide-to="3"></li>
                   </ol>
                 
+
                   <!-- Wrapper for slides -->
         <% @every_post1.asia1s.each do |r|%>
                   <div class="carousel-inner" role="listbox" align="center">
@@ -95,35 +93,36 @@
                   </div>
          <% end %>
 
-        
-        
-                   
-                      <!-- Left and right controls -->
-                      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                    </div>
-                    
+                  <!-- Left and right controls -->
+                  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+
+             </div>
+<!--slide end-->                    
 
         </div>
 
-<hr>
-            <div class="slidePoint" style = "background:white">
 
-                       <img class="icon_img" src="/assets/icon2.jpg" alt=""/>
-                          <h3 style ="text-align:left">  여행사기게시판  
+<!--여행사기 게시판 / 글쓰기 버튼-->       
+       <div class="slidePoint" style = "background:white">
+                  <hr style="margin-top:50px; margin-bottom:50px; ">
+                          <img src="/assets/board_title_1.png" style="height:80px" align="left" />
                           <input type="hidden" value="<%= @every_post1.id%>" name="id_of_post">
-                          <a href = "/home/write/<%= @every_post1.id %>"> <img src="/assets/write.png" style=" height : 50px;" align="right" id="write_botton"/> </a>
-                          </h3>
-</div>
-            <div class="slidePoint" style = "margin-top: 0px;padding-bottom: 10px;background:white;margin-left: 0px;border-left-width: 20px;padding-left: 10px;">
+                          <a href = "/home/write/<%= @every_post1.id %>"> <img src="/assets/write.png" style=" height : 50px; margin-top: 30px;" align="right" id="write_button"/> </a>
+                      
+      </div>
+      
+      
+<!--게시물-->       
+      <div class="slidePoint" style = "margin-top: 50px;padding-bottom: 50px;background:white;margin-left: 0px;border-left-width: 20px;padding-left: 10px;">
              
-                          <br>
+                <br>
                 <div class="ui link cards">
                  
                           <% @every_post1.writings.each do |r| %>
@@ -162,13 +161,17 @@
          
                          
             </div>
-        </div>
+</div>
  
+ 
+ 
+ 
+<!--인기 여행지-->       
 
 <div class="slidePoint" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
 	<div class="container clearfix">
-		<img class="icon_img" src="/assets/icon2.jpg" alt=""/>
-		<h3 style ="text-align:left">인기여행지</h3>
+        <img src="/assets/board_title_2.png" style="height:80px; margin-bottom:50px;" align="left" />
+
 		<br>
 	
         <div class="container text-center">
@@ -258,7 +261,7 @@
         
    <!--마우스 이미지 오버랩-->
     <script>
-        $( "#write_botton" ).hover(
+        $( "#write_button" ).hover(
           function() {
             $( this ).attr('src','/assets/write_1.png' );
           }, function() {
