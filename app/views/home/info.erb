@@ -43,15 +43,14 @@
           <a class="item" href ="/home/twitter">커뮤니티</a>
             <% if user_signed_in? %>
                <div class="ui dropdown item">
-                 <%= current_user.email %><i class="dropdown icon"></i>
-               <div class="menu">
-                 <a class="item"><%= link_to "My Profile", edit_user_registration_path %></a>
+                 <%= current_user.email %>
+            </div>
+            <div class="ui dropdown item">
                  <a class="item"><%= link_to "로그아웃", destroy_user_session_path, :method => :get, data: { confirm: "확실하세요?" } %></a>
-               </div>
               </div>
             <% else %>
             
-           <a class="item" href ="/users/sign_in">로그인aa</a>
+           <a class="item" href ="/users/sign_in">로그인</a>
            <a class="item" href ="/users/sign_up">회원가입</a>
             <% end %>
      </div>
