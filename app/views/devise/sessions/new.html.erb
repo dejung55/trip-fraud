@@ -1,27 +1,30 @@
 <div class = "container" align = "center">
-      <div class="row" style= "margin-top : 150px;border: 1px solid gray; ">
+      <div class="row" style= "margin-top : 150px; border: 1px solid gray; ">
           <div class="col-sm-4 col-md-4" style=" height : 500px; ">
  
-            <h1 style= "margin-top : 50px;">SIGN IN</h1>
-            
-             
+            <h1 style= "margin-top : 50px; margin-bottom: 80px; ">SIGN IN</h1>
+
             
             <form action="/users/sign_in" method="post">
-              <input type="underline" name="email"  placeholder="Email Adrees" name="user[email]"> <span class="glyphicon glyphicon-user" style="color:gray;" aria-hidden="true"></span>
+              <input type="underline"   placeholder="Email Adrees" name="user[email]"> <span class="glyphicon glyphicon-user" style="color:gray;" aria-hidden="true"></span>
               
               
-              <input type="password" name="password" placeholder="Password" name="user[password]" style="border:none; border-bottom:1px solid gray; height:3rem; width:80%;"> <span class="glyphicon glyphicon-lock" style="color:gray;" aria-hidden="true"></span>
-              <input type="submit" name="commit" value="Sign in" class="btn btn-primary" />
+              <input type="password"  placeholder="Password" name="user[password]" style="border:none; border-bottom:1px solid gray; height:3rem; width:80%;"> <span class="glyphicon glyphicon-lock" style="color:gray;" aria-hidden="true"></span>
+<hr>
+
+<div>
+              <input type="IMAGE" src="/assets/log_in_button.png" style="height:30px ; margin-left:30px;" name="Submit" value="Submit" align="left" />
+              <a href="/users/sign_up"><img src="/assets/sign_up_button.png" style="height:30px; position: relative; top:0px; left:5px;" /></a>
+</div>
+
+<br/>
             </form>
-             <a href="/users/sign_up">Sign up</a><br />
-    <a href="/users/password/new">Forgot your password?</a><br />
-            </button>
-            </body>
-            </html>
-            
-              
-              
+
+
+              <a href="/users/password/new">Forgot your password?</a><br />
           </div>
+          
+          
           <div class="col-sm-7 col-md-7"  style=" height : 500px; width : 650px; position: relative; right:0px;">
               <img src="/assets/signin_img.png" style=" height : 500px;  width : 650px; position: relative; right: 0px;" align="left" />
               <a href="/home/index"><img src="/assets/x_img.png" style=" height : 25px;  width : 25px; position: absolute; right: 10px; top:20px" align="right" /></a>
