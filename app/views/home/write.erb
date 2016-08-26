@@ -1,42 +1,61 @@
-<!DOCTYPE html>
-<html>
+html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
- <script type="text/javascript" src="/assets/tinymce.js"></script>
-	<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-<script>
- 
-</script>
+    <title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://malsup.github.io/jquery.cycle2.js"></script>
+    <script type="text/javascript" src="/assets/tinymce.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.3/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 </head>
+    <body>
+        
+<%= tinymce_assets %>  
 
-<body>
+    
+    <script src="http://malsup.github.com/jquery.cycle2.js"></script>
+</head>
+    <body>
 
-
-
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              <a class="navbar-brand" href="/">Travel Compass</a>
-            </div>
-            
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">홈으로</a></li>
-                  <li><a href="#">로그아웃</a></li>
-                </ul>
-                
-            </div>
+    <div class="ui borderless top fixed menu" style="height:70px">
+      <div class="item">
+         <a class="navbar-brand" href="/home/index" style="margin-left: 0px; margin-right: 0px;padding-top: 10px;padding-bottom: 0px;"><img src="/assets/title_text2.png" width="230" height="30"></a>
       </div>
-    </nav>
-    
-    
+      
+      <div class="right menu"> 
+          <div class="item">
+           <form action="/home/search" method="GET">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                  <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                  <input class="mdl-textfield__input" type="text" id="sample6" placeholder="검색하기" name="search" required>
+                  <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                </div>
+              </div>
+            </form>
+         </div>
+          <a class="item" href ="/home/twitter">커뮤니티</a>
+            <% if user_signed_in? %>
+               <div class="ui dropdown item">
+                 <%= current_user.email %><i class="dropdown icon"></i>
+               <div class="menu">
+                 <a class="item"><%= link_to "My Profile", edit_user_registration_path %></a>
+                 <a class="item"><%= link_to "로그아웃", destroy_user_session_path, :method => :get, data: { confirm: "확실하세요?" } %></a>
+               </div>
+              </div>
+            <% else %>
+            
+           <a class="item" href ="/users/sign_in">로그인</a>
+           <a class="item" href ="/users/sign_up">회원가입</a>
+            <% end %>
+     </div>
+  </div>
+
+        
 
 
     <form action="/home/pass" method="POST"  enctype="multipart/form-data">
@@ -47,26 +66,35 @@
           </div>
             <br>
             <label for="exampleInputEmail1"> - 내용 - </label>
-            <input type="text" value="<%= @one_post.id%>" name="id_of_post">
+            <input type="hidden" value="<%= @one_post.id%>" name="id_of_post">
             <textarea class="tinymce" rows="15" placeholder="내용을 입력해주세요" name="content"></textarea>
              <input type="file" name="pic" accept="image/*">
           
              
          
           <br>
-            <button type="submit" class="btn btn-default"> 작성 </button>
+          <div align="center">
+            <button type="submit"  style="border: 0; background: transparent" class="btn btn-default" > <img src="/assets/write_button" style="width:100px"  alt="submit" id="write_button" /></button>
+          </div>
     </form>
-    <form action="/home/upload" method ="post">
-   
-      <input type="submit">
-    </form>
+
           <br>
           <br>
           <br>
-      <footer>
-        <p>&copy; Travel Compass. Team. 영남대학교 멋쟁이사자처럼 </p>
-      </footer>
+
 </div>
 </body>
 </html>
 <%= tinymce plugins: ["uploadimage"] %>
+
+   <!--마우스 이미지 오버랩-->
+    <script>
+        $( "#write_button" ).hover(
+          function() {
+            $( this ).attr('src','/assets/write_button_1.png' );
+          }, function() {
+            $( this ).attr('src','/assets/write_button.png' );
+          }
+        );
+     </script>    
+

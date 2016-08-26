@@ -1,51 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
     <title></title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://malsup.github.io/jquery.cycle2.js"></script>
+    <script type="text/javascript" src="/assets/tinymce.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.3/semantic.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-
-
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 </head>
+    <body>
+        
+<%= tinymce_assets %>  
 
-<body>
-    <div class="menu-top">	
-        <div class="container clearfix">
-            <div id="logo" class="fleft">
-                <a class="navbar-brand" href="/"><img src="/assets/title_text2.png"  width="270" height="30"></a>
-            </div>
+    
+    <script src="http://malsup.github.com/jquery.cycle2.js"></script>
+</head>
+    <body>
+
+    <div class="ui borderless top fixed menu" style="height:70px">
+      <div class="item">
+         <a class="navbar-brand" href="/home/index" style="margin-left: 0px; margin-right: 0px;padding-top: 10px;padding-bottom: 0px;"><img src="/assets/title_text2.png" width="230" height="30"></a>
+      </div>
+      
+      <div class="right menu"> 
+          <div class="item">
+           <form action="/home/search" method="GET">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                  <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                  <input class="mdl-textfield__input" type="text" id="sample6" placeholder="검색하기" name="search" required>
+                  <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                </div>
+              </div>
+            </form>
+         </div>
+          <a class="item" href ="/home/twitter">커뮤니티</a>
+            <% if user_signed_in? %>
+               <div class="ui dropdown item">
+                 <%= current_user.email %><i class="dropdown icon"></i>
+               <div class="menu">
+                 <a class="item"><%= link_to "My Profile", edit_user_registration_path %></a>
+                 <a class="item"><%= link_to "로그아웃", destroy_user_session_path, :method => :get, data: { confirm: "확실하세요?" } %></a>
+               </div>
+              </div>
+            <% else %>
             
-            
-            <div id="nav" class="fright">
-                 <form action="/home/search" method="GET" class="search">
-                    <div class="field">
-                      <input type="text" class="input-search" id="input-search" name="search" required>
-                      <label for="input-search">검색하기ffff</label>
-                    </div> <!-- /field -->
-                  </form>
-            </div>
-            
-            <div id="nav" class="fright">
-                <ul class="nav nav-pills pull-right">
-                    <li><a href ="/home/twitter"> 커뮤니티 </a></li>
-                  <% if user_signed_in? %>
-                    <li><%= current_user.email %><%= link_to "로그아웃", destroy_user_session_path, :method => :get %></li>
-                  <% else %>
-                    <li><%= link_to "로그인", new_user_session_path %></li>
-                    <li><%= link_to "회원가입", new_user_registration_path %></li>
-                  <% end %>
-                </ul>
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
+           <a class="item" href ="/users/sign_in">로그인</a>
+           <a class="item" href ="/users/sign_up">회원가입</a>
+            <% end %>
+     </div>
+  </div>
  
   <!-- 게시판 글 보는 곳 -->
     
@@ -72,20 +79,20 @@
 
                 <hr>
     <!-- 좋아요 -->
-               
+                <h4> 
              <% if user_signed_in? && @every_post.post_likes.where(writing_id: @every_post.id, user_id: current_user.id).blank? %>
-                 <a href="/home/post_like/<%=@every_post.id%>">좋아요</a>
+                 <a href="/home/post_like/<%=@every_post.id%>"><img src="/assets/like_1.png" style="width: 40px;"/></a>
              <% elsif user_signed_in? %>
-                 <a href="/home/post_like/<%=@every_post.id%>">좋아요 취소</a>
+                 <a href="/home/post_like/<%=@every_post.id%>"><img src="/assets/like_2.png" style="width: 40px;"/></a>
              <% end %>
-                  좋아요 갯수 <%= @every_post.post_likes.all.count %>
+               (<%= @every_post.post_likes.all.count %>) 댓글(<%= @every_post.replies.count %>)</h4>
                 
         
         
         
            <!-- 댓글 되는 곳 -->
             
-                 <label for="exampleInputEmail1">댓글(<%= @every_post.replies.count %>)</label><hr>
+                 <hr>
                     <% @every_post.replies.each do |r| %>
                         <ul class="demo-list-three mdl-list">
                           <li class="mdl-list__item mdl-list__item--three-line">
@@ -93,10 +100,10 @@
                               <i class="material-icons mdl-list__item-avatar">person</i>
                               <% if user_signed_in? && r.user == current_user %>
                               <form action="/home/reply_destroy/<%= r.id %>" method="post" style="float: right;">
-                                    <button type="submit" class="btn btn-outline-secondary">삭제</button>
+                                    <button type="submit"  style="border: 0; background: transparent;" class="btn btn-default" > <img src="/assets/delete_button" style="width:50px"  alt="submit"/></button>
                               </form>
                               <form action="/home/reply_updateview/<%= r.id %>" method="post" style="float: right;">
-                                    <button type="submit" class="btn btn-outline-secondary delete">수정</button>
+                                    <button type="submit" style="border: 0; background: transparent;" class="btn btn-default" > <img src="/assets/insert_button" style="width:50px" alt="submit"/></button>
                               </form>
                             <% end %>
                               <span> <%= r.user.email%></span>
@@ -110,8 +117,11 @@
                     <% end %>
                 <form action= "/home/reply_write" style="margin-top:4px;" method='POST'>
                     <input type="hidden" value="<%= @every_post.id%>" name="id_of_post">
-                    <textarea name="content" class="form-control" rows="1" id="commit" placeholder="댓글을 남겨주세요"></textarea>
-                    <button type="submit" class="btn btn-default" style="margin-top:30px">전송</button>
+
+                <div class="row" style="margin-top:30px;">
+                    <div class="col-md-10"><textarea name="content" class="form-control" style="width:100%; padding: 16px 18px;" rows="1" id="commit" placeholder="댓글을 남겨주세요"></textarea></div>
+                    <div class="col-md-2"><button type="submit"  style="border: 0; background: transparent;" class="btn btn-default" > <img src="/assets/write_button" style="width:70px"  id="write_button"alt="submit"/></button></div>
+                </div>
                 </form><br>
         </div>
         <div class="col-md-3"></div>
@@ -119,15 +129,25 @@
 
 
 
-  <div id="footer">
-            <div class="container clearfix">
-                <div class="copyright">Travel the World &copy; 2020 | <a href="javascript:void(0);">Privacy Policy</a></div>
-                
-            </div>
-        </div>
+
  </form>
+
+
+</body>
 </html>
 
 
 
+   <!--마우스 이미지 오버랩-->
+    <script>
+        $( "#write_button" ).hover(
+          function() {
+            $( this ).attr('src','/assets/write_button_1.png' );
+          }, function() {
+            $( this ).attr('src','/assets/write_button.png' );
+          }
+        );
+
+
+     </script>    
 

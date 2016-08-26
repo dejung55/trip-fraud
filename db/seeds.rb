@@ -9,7 +9,7 @@ Post.create( id: "0", title3:"일본", img3: "https://upload.wikimedia.org/wikip
 Post.create( id: "1", title3:"중국", img3: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/900px-Flag_of_the_People%27s_Republic_of_China.svg.png")
 Post.create( id: "2", title3:"필리핀", img3: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_the_Philippines.svg/900px-Flag_of_the_Philippines.svg.png")
 Post.create( id: "3", title3:"인도", img3: "http://www.icons.or.kr/attach/board/migration/icons/cooper371/1243489097.02.jpg")
-Post.create( id: "4", title3:"싱가폴", img3: "https://image-proxy.namuwikiusercontent.com/r/http%3A%2F%2Fwww.worldstatesmen.org%2Fsg.gif")
+Post.create( id: "4", title3:"싱가폴", img3: "https://www.google.co.kr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjE3-3JhtzOAhXFopQKHar8AQwQjRwIBw&url=http%3A%2F%2Fglobal.rakuten.com%2Fko%2Fstore%2Fsaiga%2Fitem%2F409074%2F&psig=AFQjCNEK5sicWFGEqlm4NuXYFL1PSjbEpA&ust=1472196792000703")
 
 
 
