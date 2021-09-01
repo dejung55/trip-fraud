@@ -1,8 +1,5 @@
 # Likelion 4th hackathon(2016): Travel Compass
 
-
-Screenshots: 해커톤 발표자료
-------------
 <div>
 <img width = "600" src="https://user-images.githubusercontent.com/51472378/63175436-f88e5300-c07e-11e9-9d94-b5255f25a400.png">
 
